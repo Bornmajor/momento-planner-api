@@ -226,9 +226,16 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 
 - Only upcoming events are returned (`startDateTime` = now), sorted by `date,asc`.
 - Ticketmaster can't page past item 1,000, so requests where `(page+1)*size > 1000` return `400`.
-- **Categories** are a fixed, curated list of Ticketmaster's top-level groups ("segments": Music, Sports, Arts & Theatre,
-  Film, Miscellaneous). The real segment IDs are looked up from the Ticketmaster classifications endpoint during
-  implementation and stored in config. This keeps API calls and visual clutter down.
+- **Categories** are a fixed, curated list of Ticketmaster's top-level groups ("segments"), stored in config.
+  The IDs below were confirmed by the T0.2 spike. Ticketmaster's `Undefined` segment is left out.
+
+  | Our category ID | Name           | Ticketmaster segment ID |
+  | --------------- | -------------- | ----------------------- |
+  | `music`         | Music          | `KZFzniwnSyZfZ7v7nJ`    |
+  | `sports`        | Sports         | `KZFzniwnSyZfZ7v7nE`    |
+  | `arts-theatre`  | Arts & Theatre | `KZFzniwnSyZfZ7v7na`    |
+  | `film`          | Film           | `KZFzniwnSyZfZ7v7nn`    |
+  | `miscellaneous` | Miscellaneous  | `KZFzniwnSyZfZ7v7n1`    |
 
 `Event` (our own format; `EventSummary` is the same without `description` and `notes`):
 
@@ -257,9 +264,11 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 | `POST /me/saved-events`            | `{ eventId }`       | `201 { savedEvent }` (the event must exist at the source) · `200` if already saved |
 | `DELETE /me/saved-events/:eventId` | —                   | `204` (also `204` if it wasn't saved)                                              |
 
-`SavedEventView = { eventId, savedAt, available: boolean, event: Event | null }`. `available` is false when the
-source returns 404 for that event. The backend loads the details for each saved ID using the cache (§8),
-with at most 4 Ticketmaster calls at a time.
+`SavedEventView = { eventId, savedAt, available: boolean, event: Event | null }`.
+
+- The backend loads a whole page of saved events with **one** Ticketmaster batch request (`getByIds`, see §8).
+  Events already in the cache are skipped.
+- `available` is false when an ID is missing from the batch response.
 
 ### Personalize (auth required)
 
@@ -272,6 +281,8 @@ with at most 4 Ticketmaster calls at a time.
   `description` and `facts` into the calendar notes.
 - If `shorten` is false and `language` is the event's original language (assumed to be English), the original text is
   returned and the AI isn't called.
+  > ⚠️ **Under review:** the T0.2 spike showed event text is often not in English (see §8). A replacement rule is
+  > pending your approval.
 - Errors: `404` if the event doesn't exist · `429 AI_LIMIT_REACHED` · `502 UPSTREAM_UNAVAILABLE` if the AI call fails.
 
 ### Health
@@ -281,7 +292,7 @@ with at most 4 Ticketmaster calls at a time.
 ## 8. Ticketmaster integration
 
 - `TicketmasterProvider` implements:
-  `search({ q, categoryId, page, size })`, `getById(id)`, `listCategories()`.
+  `search({ q, categoryId, page, size })`, `getById(id)`, `getByIds(ids)` (at most 20 IDs), `listCategories()`.
 - Calls `GET https://app.ticketmaster.com/discovery/v2/events.json` and `/events/{id}.json` with `apikey`, and
   `locale=*` to include events from all locales.
 - **Limits:** 5,000 calls/day and 5 per second (confirmed from the docs). A small in-process rate limiter keeps us at
@@ -301,11 +312,19 @@ with at most 4 Ticketmaster calls at a time.
   - A 429 or 5xx from Ticketmaster is returned to our client as `502 UPSTREAM_UNAVAILABLE`, and the details are logged.
   - A 401 (bad API key) is logged as an error and also returned as `502`.
   - Requests time out after 8 seconds.
-- **To check early in implementation (spike task):**
-  - The exact response for an unknown or removed ID (expected 404).
-  - Whether `id=` accepts several IDs at once (it isn't confirmed). If it does, My Events can load many events in one call.
-  - The real segment IDs.
-  - Whether `info`, `pleaseNote` and `priceRanges` are present.
+- **Spike findings (T0.2, 2026-11-06):** from real API calls; the responses are saved in `test/fixtures/ticketmaster/`.
+
+  | Question                              | Finding                                                                                                                                                | Effect on the design                                                        |
+  | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+  | Unknown or removed ID                 | `GET /events/{id}.json` returns **HTTP 404**, error code `DIS1004`                                                                                     | `getById` turns a 404 into "not found"                                      |
+  | Several IDs in one request            | **Works.** `events.json?id=a,b,...` returned all 20 real events. An unknown ID mixed in is **left out silently** (HTTP 200).                           | `getByIds`. An ID missing from the response means the event is unavailable. |
+  | Segment IDs                           | 6 segments, including `Undefined`                                                                                                                      | Category table in §7                                                        |
+  | `description` / `info` / `pleaseNote` | Present on 11/20, 6/20 and 5/20 search results                                                                                                         | All three are optional. `description` is combined from what's present.      |
+  | `priceRanges`                         | **Missing on 0/20** results checked                                                                                                                    | `priceRange` will almost always be `null`. The app must not depend on it.   |
+  | Language of event text                | With `locale=*`, text is in the event's local language (seen: Spanish, German, English). Each event has a `locale` field (e.g. `es-es`).               | **Changes personalization: see §9 note**                                    |
+  | Other                                 | `dates.timezone` on 20/20 · a 16:9 image on 20/20 · status codes seen: `onsale`, `offsale` · `test: false` on all · venue country is sometimes missing | Mapping treats country as optional                                          |
+  | Search totals                         | `totalElements` is capped at 10,000                                                                                                                    | Pagination uses the 1,000-item limit anyway                                 |
+
 - **Attribution:** show a "Tickets on Ticketmaster" link and follow the branding guide (checked before the demo).
   Ticketmaster image URLs are shown directly and never downloaded and re-hosted.
 

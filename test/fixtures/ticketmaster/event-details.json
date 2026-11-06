@@ -1,0 +1,697 @@
+{
+  "status": 200,
+  "body": {
+    "name": "Kip Moore - Reason To Believe World Tour",
+    "type": "event",
+    "id": "16KZkofPyZA26uAu",
+    "test": false,
+    "url": "https://www.ticketmaster.com.au/kip-moore-reason-to-believe-world-brisbane-06-11-2026/event/13006454979E6C4C",
+    "locale": "en-us",
+    "images": [
+      {
+        "ratio": "4_3",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_CUSTOM.jpg",
+        "width": 305,
+        "height": 225,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/18f/b23e9897-2826-428c-9955-db8e3340f18f_SOURCE",
+        "width": 2200,
+        "height": 1238,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_EVENT_DETAIL_PAGE_16_9.jpg",
+        "width": 205,
+        "height": 115,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_16_9.jpg",
+        "width": 1024,
+        "height": 576,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_LANDSCAPE_16_9.jpg",
+        "width": 1136,
+        "height": 639,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RECOMENDATION_16_9.jpg",
+        "width": 100,
+        "height": 56,
+        "fallback": false
+      },
+      {
+        "ratio": "3_2",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_PORTRAIT_3_2.jpg",
+        "width": 640,
+        "height": 427,
+        "fallback": false
+      },
+      {
+        "ratio": "3_2",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_ARTIST_PAGE_3_2.jpg",
+        "width": 305,
+        "height": 203,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_PORTRAIT_16_9.jpg",
+        "width": 640,
+        "height": 360,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+        "width": 2048,
+        "height": 1152,
+        "fallback": false
+      },
+      {
+        "ratio": "16_9",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_SOURCE",
+        "width": 2426,
+        "height": 1365,
+        "fallback": false
+      },
+      {
+        "ratio": "3_2",
+        "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_3_2.jpg",
+        "width": 1024,
+        "height": 683,
+        "fallback": false
+      }
+    ],
+    "sales": {
+      "public": {
+        "startDateTime": "2026-03-10T03:00:00Z",
+        "startTBD": false,
+        "startTBA": false,
+        "endDateTime": "2026-11-06T09:00:00Z"
+      },
+      "presales": [
+        {
+          "startDateTime": "2026-03-05T03:00:00Z",
+          "endDateTime": "2026-03-10T02:00:00Z",
+          "name": "Frontier Member Presale"
+        },
+        {
+          "startDateTime": "2026-03-05T03:00:00Z",
+          "endDateTime": "2026-03-10T02:00:00Z",
+          "name": "Artist Presale"
+        }
+      ]
+    },
+    "dates": {
+      "start": {
+        "localDate": "2026-11-06",
+        "localTime": "19:00:00",
+        "dateTime": "2026-11-06T09:00:00Z",
+        "dateTBD": false,
+        "dateTBA": false,
+        "timeTBA": false,
+        "noSpecificTime": false
+      },
+      "timezone": "Australia/Brisbane",
+      "status": {
+        "code": "onsale"
+      },
+      "spanMultipleDays": false
+    },
+    "classifications": [
+      {
+        "primary": true,
+        "segment": {
+          "id": "KZFzniwnSyZfZ7v7nJ",
+          "name": "Music"
+        },
+        "genre": {
+          "id": "KnvZfZ7vAv6",
+          "name": "Country"
+        },
+        "subGenre": {
+          "id": "KZazBEonSMnZfZ7vAFa",
+          "name": "Country"
+        },
+        "type": {
+          "id": "KZAyXgnZfZ7v7nI",
+          "name": "Undefined"
+        },
+        "subType": {
+          "id": "KZFzBErXgnZfZ7v7lJ",
+          "name": "Undefined"
+        },
+        "family": false
+      }
+    ],
+    "promoter": {
+      "id": "510",
+      "name": "FRONTIER TOURING COMPANY",
+      "description": "FRONTIER TOURING COMPANY / NTL / AUS"
+    },
+    "promoters": [
+      {
+        "id": "510",
+        "name": "FRONTIER TOURING COMPANY",
+        "description": "FRONTIER TOURING COMPANY / NTL / AUS"
+      }
+    ],
+    "info": "Supported by : Kingswood .",
+    "pleaseNote": "Children's Policy: Persons under 12 years must be accompanied by a parent or guardian at all times within the Fortitude Music Hall.",
+    "products": [
+      {
+        "name": "Premium Lounge - Kip Moore - Does not Include Entry",
+        "id": "1AKZkofGkdKoiUR",
+        "url": "http://www.ticketmaster.com.au/premium-lounge-kip-moore-does-not-brisbane-queensland-11-06-2026/event/13006454D346CDAF",
+        "type": "Upsell",
+        "classifications": [
+          {
+            "primary": true,
+            "segment": {
+              "id": "KZFzniwnSyZfZ7v7n1",
+              "name": "Miscellaneous"
+            },
+            "genre": {
+              "id": "KnvZfZ7v7ll",
+              "name": "Undefined"
+            },
+            "subGenre": {
+              "id": "KZazBEonSMnZfZ7vAv1",
+              "name": "Undefined"
+            },
+            "type": {
+              "id": "KZAyXgnZfZ7v7nJ",
+              "name": "Upsell"
+            },
+            "subType": {
+              "id": "KZFzBErXgnZfZ7vAkA",
+              "name": "Concession Voucher"
+            },
+            "family": false
+          }
+        ]
+      }
+    ],
+    "seatmap": {
+      "staticUrl": "https://s1.ticketm.net/tmimages/venue/maps/aus/98970s.gif"
+    },
+    "ticketLimit": {
+      "info": "There is a limit of 4 tickets for presale and a limit of 8 tickets for general onsale per customer."
+    },
+    "ageRestrictions": {
+      "legalAgeEnforced": false
+    },
+    "ticketing": {
+      "safeTix": {
+        "enabled": true
+      },
+      "allInclusivePricing": {
+        "enabled": false
+      }
+    },
+    "nameOrigin": "custom",
+    "ticketTextLines": {
+      "en-au": {
+        "line6": "FRI 6 NOV'26 DOORS 7:00PM ",
+        "line5": "  Reason To Believe Tour  ",
+        "line4": "        KIP MOORE         ",
+        "line3": "    Chugg Ent Present     ",
+        "line2": "    Frontier Touring &    ",
+        "line1": "   Fortitude Music Hall   "
+      }
+    },
+    "linkMoreInfo": {
+      "descriptions": {
+        "en-nz": "Please click here to visit The Fortitude Music Hall Website",
+        "en-ca": "Please click here to visit The Fortitude Music Hall Website",
+        "en-us": "Please click here to visit The Fortitude Music Hall Website",
+        "en-au": "Please click here to visit The Fortitude Music Hall Website",
+        "es-us": "Please click here to visit The Fortitude Music Hall Website",
+        "en-mx": "Please click here to visit The Fortitude Music Hall Website",
+        "es-mx": "Please click here to visit The Fortitude Music Hall Website",
+        "fr-ca": "Please click here to visit The Fortitude Music Hall Website"
+      },
+      "url": "https://www.thefortitude.com.au/"
+    },
+    "_links": {
+      "self": {
+        "href": "/discovery/v2/events/16KZkofPyZA26uAu?locale=en-us"
+      },
+      "attractions": [
+        {
+          "href": "/discovery/v2/attractions/K8vZ9172COf?locale=en-us"
+        },
+        {
+          "href": "/discovery/v2/attractions/K8vZ917oRof?locale=en-us"
+        }
+      ],
+      "venues": [
+        {
+          "href": "/discovery/v2/venues/KovZ917AOjB?locale=en-us"
+        }
+      ]
+    },
+    "_embedded": {
+      "venues": [
+        {
+          "name": "The Fortitude Music Hall",
+          "type": "venue",
+          "id": "KovZ917AOjB",
+          "test": false,
+          "url": "https://www.ticketmaster.com.au/the-fortitude-music-hall-tickets-brisbane/venue/158413",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dbimages/21670v.png",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            }
+          ],
+          "postalCode": "4006",
+          "timezone": "Australia/Brisbane",
+          "city": {
+            "name": "Brisbane"
+          },
+          "state": {
+            "name": "Queensland",
+            "stateCode": "QLD"
+          },
+          "country": {
+            "name": "Australia",
+            "countryCode": "AU"
+          },
+          "address": {
+            "line1": "312-318 Brunswick Street"
+          },
+          "location": {
+            "longitude": "153.03455300",
+            "latitude": "-27.45797100"
+          },
+          "markets": [
+            {
+              "name": "All of Australia",
+              "id": "301"
+            },
+            {
+              "name": "Queensland",
+              "id": "303"
+            }
+          ],
+          "dmas": [
+            {
+              "id": 701
+            },
+            {
+              "id": 703
+            }
+          ],
+          "boxOfficeInfo": {
+            "phoneNumberDetail": "NA",
+            "willCallDetail": "boxoffice@thefortitude.com.au"
+          },
+          "parkingDetail": "If you do wish to drive there is a car park conveniently located directly under The Fortitude Music Hall, accessible via Warner Street. This carpark will give you direct access to the entry of The Fortitude Music Hall, located on the Brunswick Street Mall. There are several other parking options close by, McWhirters Carpark, located directly behind the venue and can be accessed via Warner Street or Ballow Street and is a short walk to the Brunswick Street Mall, the China Town Carpark with access from Gipps or Duncan Streets, a short walk across the China Town Mall and through the TC Burns Building straight to The Fortitude Music Hall’s entrance.",
+          "accessibleSeatingDetail": "The Fortitude Music Hall is a wheelchair friendly venue, the main auditorium is located on the Brunswick Street Mall level. There is a lift located for the mezzanine level and our staff will be able to assist you to your designated area. There are wheelchair amenities available on both levels. Please contact the venue for accessible seating.",
+          "generalInfo": {
+            "generalRule": "A dress code of enclosed shoes applies for all shows at Fortitude Music Hall. Please bring your winning attitude and enjoy your night responsibly. We’re thrilled you’ve chosen to celebrate art with us.",
+            "childRule": "Venue licencing varies from show to show. Please check carefully when purchasing your ticket whether the event is suitable for children."
+          },
+          "upcomingEvents": {
+            "ticketmaster": 84,
+            "_total": 84,
+            "_filtered": 0
+          },
+          "ada": {
+            "adaPhones": "1300 446 925 ",
+            "adaCustomCopy": "Telephone Number(s):\nIf you have accessible booking requirements, including wheelchair and/or companion card requirements please: call 1300 446 925 or submit a request via our help page at:\n\nhttps://help.ticketmaster.com.au/hc/en-au\nService Hours:\nCustomer Service Hours: Monday-Sunday 9am-5pm (AEST/ AEDT when  applicable)",
+            "adaHours": "Customer Service Hours: Monday-Sunday 9am-5pm (AEST / AEDT applicable)"
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/venues/KovZ917AOjB?locale=en-us"
+            }
+          }
+        }
+      ],
+      "attractions": [
+        {
+          "name": "Kip Moore",
+          "type": "attraction",
+          "id": "K8vZ9172COf",
+          "test": false,
+          "url": "https://www.ticketmaster.com/kip-moore-tickets/artist/1667788",
+          "locale": "en-us",
+          "externalLinks": {
+            "youtube": [
+              {
+                "url": "https://www.youtube.com/user/KipMooreMusic"
+              }
+            ],
+            "twitter": [
+              {
+                "url": "https://twitter.com/KipMooreMusic"
+              }
+            ],
+            "itunes": [
+              {
+                "url": "https://music.apple.com/artist/kip-moore/424037434"
+              }
+            ],
+            "spotify": [
+              {
+                "url": "https://open.spotify.com/artist/2hJPr4lk7Q8SSvCVBl9fWM"
+              }
+            ],
+            "wiki": [
+              {
+                "url": "https://en.wikipedia.org/wiki/Kip_Moore"
+              }
+            ],
+            "facebook": [
+              {
+                "url": "https://www.facebook.com/KipMooreOfficial"
+              }
+            ],
+            "instagram": [
+              {
+                "url": "https://www.instagram.com/kipmooremusic/"
+              }
+            ],
+            "musicbrainz": [
+              {
+                "id": "3afa378a-4a7f-46f5-b686-f41ee2287c0c",
+                "url": "https://musicbrainz.org/artist/3afa378a-4a7f-46f5-b686-f41ee2287c0c"
+              }
+            ],
+            "homepage": [
+              {
+                "url": "http://www.kipmoore.net/"
+              }
+            ]
+          },
+          "images": [
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/18f/b23e9897-2826-428c-9955-db8e3340f18f_SOURCE",
+              "width": 2200,
+              "height": 1238,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_SOURCE",
+              "width": 2426,
+              "height": 1365,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c6d/4900c14f-5af3-4e5e-82f9-22d088b30c6d_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            }
+          ],
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAv6",
+                "name": "Country"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7vAFa",
+                "name": "Country"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "upcomingEvents": {
+            "tmr": 4,
+            "ticketmaster": 9,
+            "_total": 13,
+            "_filtered": 0
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/attractions/K8vZ9172COf?locale=en-us"
+            }
+          }
+        },
+        {
+          "name": "Kingswood",
+          "type": "attraction",
+          "id": "K8vZ917oRof",
+          "test": false,
+          "url": "https://www.ticketmaster.com/kingswood-tickets/artist/1917317",
+          "locale": "en-us",
+          "externalLinks": {
+            "youtube": [
+              {
+                "url": "http://youtube.com/kingswoodband"
+              }
+            ],
+            "twitter": [
+              {
+                "url": "http://twitter.com/kingswoodband"
+              }
+            ],
+            "itunes": [
+              {
+                "url": "https://music.apple.com/ca/artist/kingswood/345269959"
+              }
+            ],
+            "spotify": [
+              {
+                "url": "https://open.spotify.com/artist/4zOw0E0NA7B4lIYyc3XNt5?autoplay=true"
+              }
+            ],
+            "facebook": [
+              {
+                "url": "http://facebook.com/kingswoodmusic"
+              }
+            ],
+            "instagram": [
+              {
+                "url": "http://instagram.com/kingswoodband"
+              }
+            ],
+            "musicbrainz": [
+              {
+                "id": "45e8d023-da40-46c0-9c00-93a3c07b4498",
+                "url": "https://musicbrainz.org/artist/45e8d023-da40-46c0-9c00-93a3c07b4498"
+              }
+            ],
+            "homepage": [
+              {
+                "url": "https://www.kingswoodband.com/"
+              }
+            ]
+          },
+          "images": [
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_SOURCE",
+              "width": 5746,
+              "height": 3825,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/c72/5810410b-8a57-4afb-aa6e-44f853de9c72_1413171_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            }
+          ],
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "upcomingEvents": {
+            "ticketmaster": 2,
+            "_total": 2,
+            "_filtered": 0
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/attractions/K8vZ917oRof?locale=en-us"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

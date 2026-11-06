@@ -13,5 +13,10 @@ export default tseslint.config(
       'no-console': 'warn',
     },
   },
+  {
+    // One-off developer scripts print their results to the console.
+    files: ['scripts/**'],
+    rules: { 'no-console': 'off' },
+  },
   prettier,
 );

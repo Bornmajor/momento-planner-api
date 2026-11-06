@@ -1,0 +1,3088 @@
+{
+  "status": 200,
+  "body": {
+    "_embedded": {
+      "events": [
+        {
+          "name": "Oasis Live '27",
+          "type": "event",
+          "id": "1kAYvP7_GA25ajZ",
+          "test": false,
+          "url": "https://www.ticketmaster.com/oasis-live-27-las-vegas-nevada-08-20-2027/event/170065119F2C9700",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+              "width": 2426,
+              "height": 1365,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            }
+          ],
+          "sales": {
+            "public": {
+              "startTBD": false,
+              "startTBA": false
+            },
+            "presales": [
+              {
+                "startDateTime": "2026-09-25T18:00:00Z",
+                "endDateTime": "2026-09-25T20:00:00Z",
+                "name": "Friday 11:00 AM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-25T21:00:00Z",
+                "endDateTime": "2026-09-25T23:00:00Z",
+                "name": "Friday 2:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-26T00:00:00Z",
+                "endDateTime": "2027-08-21T06:00:00Z",
+                "name": "Friday 5:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              }
+            ]
+          },
+          "dates": {
+            "start": {
+              "localDate": "2027-08-20",
+              "localTime": "19:00:00",
+              "dateTime": "2027-08-21T02:00:00Z",
+              "dateTBD": false,
+              "dateTBA": false,
+              "timeTBA": false,
+              "noSpecificTime": false
+            },
+            "timezone": "America/Los_Angeles",
+            "status": {
+              "code": "onsale"
+            },
+            "spanMultipleDays": false
+          },
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "promoter": {
+            "id": "653",
+            "name": "LIVE NATION MUSIC",
+            "description": "LIVE NATION MUSIC / NTL / USA"
+          },
+          "promoters": [
+            {
+              "id": "653",
+              "name": "LIVE NATION MUSIC",
+              "description": "LIVE NATION MUSIC / NTL / USA"
+            }
+          ],
+          "pleaseNote": "The tour has chosen to use Ticketmaster's Face Value Exchange. If you need to resell your ticket, they recommend that you do so on Ticketmaster for the price you paid. Per the tour's request, ticket transfer and resale will be available by December 31st, 2026. Please note, a valid bank account or debit card within the country of your event is required to sell on the Face Value Exchange.",
+          "products": [
+            {
+              "name": "Oasis Live '27 - Associates and Partners Onsale",
+              "id": "1AvjZ_3Gkn9n_G0",
+              "url": "https://www.ticketmaster.com/oasis-live-27-associates-and-partners-las-vegas-nevada-08-20-2027/event/1700652A97A99324",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7vAeA",
+                    "name": "Rock"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7v6F1",
+                    "name": "Pop"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7v7nI",
+                    "name": "Undefined"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7v7lJ",
+                    "name": "Undefined"
+                  },
+                  "family": false
+                }
+              ]
+            },
+            {
+              "name": "SPOTHERO ALLEGIANT STADIUM",
+              "id": "1avjZ_Kx7fUZduuA",
+              "url": "https://www.ticketmaster.com/spothero-allegiant-stadium-las-vegas-nevada-08-20-2027/event/1700653884536CC4",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7n1",
+                    "name": "Miscellaneous"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7v7ll",
+                    "name": "Undefined"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vAv1",
+                    "name": "Undefined"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7vAva",
+                    "name": "Parking"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7vAFe",
+                    "name": "Regular"
+                  },
+                  "family": false
+                }
+              ]
+            }
+          ],
+          "seatmap": {
+            "staticUrl": "https://mapsapi.tmol.io/maps/geometry/3/event/170065119F2C9700/staticImage?type=png&systemId=HOST"
+          },
+          "ticketLimit": {
+            "info": "Please note: There is a ticket limit of 20 tickets per person and per credit card on this event. Raiders PSL Member Presale has a ticket limit of 4"
+          },
+          "ageRestrictions": {
+            "legalAgeEnforced": false
+          },
+          "ticketing": {
+            "safeTix": {
+              "enabled": true
+            },
+            "allInclusivePricing": {
+              "enabled": true
+            }
+          },
+          "nameOrigin": "custom",
+          "ticketTextLines": {
+            "en-us": {
+              "line6": "FRI AUG 20 2027 5PM DOORS ",
+              "line5": "1 *** LAS VEGAS, NV *** 1 ",
+              "line4": "    ALLEGIANT STADIUM     ",
+              "line3": "          *****           ",
+              "line2": "      OASIS LIVE '27      ",
+              "line1": "LIVE NATION & SJM PRESNTS "
+            }
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/events/1kAYvP7_GA25ajZ?locale=en-us"
+            },
+            "attractions": [
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+              },
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+              }
+            ],
+            "venues": [
+              {
+                "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+              }
+            ]
+          },
+          "_embedded": {
+            "venues": [
+              {
+                "name": "Allegiant Stadium",
+                "type": "venue",
+                "id": "KovZ917Ax7n",
+                "test": false,
+                "url": "https://www.ticketmaster.com/allegiant-stadium-tickets-las-vegas/venue/189482",
+                "locale": "en-us",
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dbimages/23729v.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "postalCode": "89118",
+                "timezone": "America/Los_Angeles",
+                "city": {
+                  "name": "Las Vegas"
+                },
+                "state": {
+                  "name": "Nevada",
+                  "stateCode": "NV"
+                },
+                "country": {
+                  "name": "United States Of America",
+                  "countryCode": "US"
+                },
+                "address": {
+                  "line1": "3333 Al Davis Way"
+                },
+                "location": {
+                  "longitude": "-115.18330000",
+                  "latitude": "36.09090000"
+                },
+                "markets": [
+                  {
+                    "name": "Las Vegas",
+                    "id": "14"
+                  }
+                ],
+                "dmas": [
+                  {
+                    "id": 319
+                  }
+                ],
+                "boxOfficeInfo": {
+                  "phoneNumberDetail": "Allegiant Stadium Box Office: 725-780-2100 Visit www.allegiantstadium.com for complete venue information.",
+                  "openHoursDetail": "Standard Hours: Monday - Friday, 11:00AM - 5:00PM Event & Game Day Hours: 4 hours prior to event time/kick-off **Available for guest assistance only - Tickets are NOT sold at the box office**",
+                  "acceptedPaymentDetail": "Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com",
+                  "willCallDetail": "Will Call tickets may be picked up at the Ticketmaster Box Office at Allegiant Stadium beginning 4 hours prior to event time/kick-off. Government issued photo identification is required to claim will call tickets. Will call drop-off tickets are not permitted. Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com"
+                },
+                "parkingDetail": "Parking Passes: -Raiders season parking passes are good for Raiders games only. Parking passes can only be accessed digitally via the Raiders official app. -Single game and event parking passes are available for select lots and can be purchased via the SpotHero app. -Purchasing parking upon arrival is based on availability. We strongly encourage you to purchase your parking pass in advance of the event. Accessible Parking: -All accessible parking spaces require a valid ADA placard or a valid ADA license plate. -If accessible parking is full, ADA placards or plate holders will be offered the next available parking space in the reserved parking lots. -ADA placards or plates alone do not grant access to the Allegiant Stadium lots. Oversized Vehicles: -Oversized vehicles, designated as vehicles longer than 20 feet, and trailers are not permitted. -RVs and oversized vehicles should contact the Oasis RV Park for park and ride options.",
+                "accessibleSeatingDetail": "Accessible seating is located throughout Allegiant Stadium and is available on ticketmaster.com. Please look for seats designated with an accessible icon to purchase. For additional accessible needs or questions, please email boxoffice@allegiantstadium.com or call the box office at 725-780-2100.",
+                "generalInfo": {
+                  "generalRule": "CLEAR BAG POLICY: - Bags must be clear plastic, vinyl or PVC and must not exceed 12 x 6 x 12 - Small clutch bags, 4.5x 6.5 x 2 can be taken into the stadium with one of the approved clear bags * An exception will be made for any necessary medical items after proper inspection at entry. CASHLESS VENUE: Allegiant Stadium is a cashless venue. Cash will not be accepted as a form of payment at any parking, retail, or concession locations. Guests may convert their cash to a debit card by using one of the Cash-to-Card kiosks located throughout the stadium. Any remaining balance on the debit card can be used at locations where debit payments are accepted. PROHIBITED ITEMS: Prohibited items include, but are not limited to, purses larger than a clutch bag, coolers, briefcases, backpacks, fanny packs, cinch bags, seat cushions, luggage of any kind, computer bags, and camera bags or any bag larger than the permissible size. ADDITIONAL VENUE INFO: For complete venue information, policies, and prohibited items, please visit: www.allegiantstadium.com/plan-your-visit",
+                  "childRule": "Children under 24 months do not need a ticket to enter Allegiant Stadium, provided that they are seated on a parents or guardians lap, and do not interfere with the sightlines of others. Children must have a ticket to receive a promotional item. This policy is subject to change on an event by event basis. Any variance will be noted on the event purchase page, More Info tab, on ticketmaster.com."
+                },
+                "upcomingEvents": {
+                  "tmr": 2,
+                  "ticketmaster": 61,
+                  "_total": 63,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+                  }
+                }
+              }
+            ],
+            "attractions": [
+              {
+                "name": "Oasis",
+                "type": "attraction",
+                "id": "K8vZ9171fw7",
+                "test": false,
+                "url": "https://www.ticketmaster.com/oasis-tickets/artist/766720",
+                "locale": "en-us",
+                "externalLinks": {
+                  "twitter": [
+                    {
+                      "url": "@oasis"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "39ab1aed-75e0-4140-bd47-540276886b60",
+                      "url": "https://musicbrainz.org/artist/39ab1aed-75e0-4140-bd47-540276886b60"
+                    }
+                  ]
+                },
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6da",
+                      "name": "Rock"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 30,
+                  "mfx-de": 6,
+                  "trium": 2,
+                  "mfx-it": 6,
+                  "_total": 52,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+                  }
+                }
+              },
+              {
+                "name": "Richard Ashcroft",
+                "type": "attraction",
+                "id": "K8vZ9171tyf",
+                "test": false,
+                "url": "https://www.ticketmaster.com/richard-ashcroft-tickets/artist/955580",
+                "locale": "en-us",
+                "externalLinks": {
+                  "youtube": [
+                    {
+                      "url": "https://www.youtube.com/channel/UCe4D66kzmrI3TI2gPz6WjTw"
+                    }
+                  ],
+                  "twitter": [
+                    {
+                      "url": "https://mobile.twitter.com/richardashcroft"
+                    }
+                  ],
+                  "itunes": [
+                    {
+                      "url": "https://music.apple.com/us/artist/richard-ashcroft/653319"
+                    }
+                  ],
+                  "wiki": [
+                    {
+                      "url": "https://en.wikipedia.org/wiki/Richard_Ashcroft"
+                    }
+                  ],
+                  "facebook": [
+                    {
+                      "url": "https://www.facebook.com/richardashcroft"
+                    }
+                  ],
+                  "spotify": [
+                    {
+                      "url": "https://open.spotify.com/artist/1HGTHrRQkw0BtevSo1jucU"
+                    }
+                  ],
+                  "instagram": [
+                    {
+                      "url": "https://www.instagram.com/richardashcroftofficial/"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "2d1d8985-47bc-4244-8cc3-577584e411f6",
+                      "url": "https://musicbrainz.org/artist/2d1d8985-47bc-4244-8cc3-577584e411f6"
+                    }
+                  ],
+                  "homepage": [
+                    {
+                      "url": "http://www.richardashcroft.com/"
+                    }
+                  ]
+                },
+                "aliases": [
+                  "richard aschcroft",
+                  "richard ashcroft",
+                  "richchard ashcroft"
+                ],
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6F1",
+                      "name": "Pop"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 27,
+                  "mfx-de": 6,
+                  "_total": 41,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Oasis Live '27",
+          "type": "event",
+          "id": "1kAYvP7_GA2Gaje",
+          "test": false,
+          "url": "https://www.ticketmaster.com/oasis-live-27-las-vegas-nevada-08-21-2027/event/170065119F309702",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+              "width": 2426,
+              "height": 1365,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            }
+          ],
+          "sales": {
+            "public": {
+              "startTBD": false,
+              "startTBA": false
+            },
+            "presales": [
+              {
+                "startDateTime": "2026-09-25T18:00:00Z",
+                "endDateTime": "2026-09-25T20:00:00Z",
+                "name": "Friday 11:00 AM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-25T21:00:00Z",
+                "endDateTime": "2026-09-25T23:00:00Z",
+                "name": "Friday 2:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-26T00:00:00Z",
+                "endDateTime": "2027-08-22T06:00:00Z",
+                "name": "Friday 5:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              }
+            ]
+          },
+          "dates": {
+            "start": {
+              "localDate": "2027-08-21",
+              "localTime": "19:00:00",
+              "dateTime": "2027-08-22T02:00:00Z",
+              "dateTBD": false,
+              "dateTBA": false,
+              "timeTBA": false,
+              "noSpecificTime": false
+            },
+            "timezone": "America/Los_Angeles",
+            "status": {
+              "code": "onsale"
+            },
+            "spanMultipleDays": false
+          },
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "promoter": {
+            "id": "653",
+            "name": "LIVE NATION MUSIC",
+            "description": "LIVE NATION MUSIC / NTL / USA"
+          },
+          "promoters": [
+            {
+              "id": "653",
+              "name": "LIVE NATION MUSIC",
+              "description": "LIVE NATION MUSIC / NTL / USA"
+            }
+          ],
+          "pleaseNote": "The tour has chosen to use Ticketmaster's Face Value Exchange. If you need to resell your ticket, they recommend that you do so on Ticketmaster for the price you paid. Per the tour's request, ticket transfer and resale will be available by December 31st, 2026. Please note, a valid bank account or debit card within the country of your event is required to sell on the Face Value Exchange.",
+          "products": [
+            {
+              "name": "Oasis Live '27 - Associates and Partners Onsale",
+              "id": "1AvjZ_3Gkn9VtCR",
+              "url": "https://www.ticketmaster.com/oasis-live-27-associates-and-partners-las-vegas-nevada-08-21-2027/event/1700652A97D293AF",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7vAeA",
+                    "name": "Rock"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7v6F1",
+                    "name": "Pop"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7v7nI",
+                    "name": "Undefined"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7v7lJ",
+                    "name": "Undefined"
+                  },
+                  "family": false
+                }
+              ]
+            },
+            {
+              "name": "SPOTHERO ALLEGIANT STADIUM",
+              "id": "1avjZ_Kx74JZduuu",
+              "url": "https://www.ticketmaster.com/spothero-allegiant-stadium-las-vegas-nevada-08-21-2027/event/1700653884566CCC",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7n1",
+                    "name": "Miscellaneous"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7v7ll",
+                    "name": "Undefined"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vAv1",
+                    "name": "Undefined"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7vAva",
+                    "name": "Parking"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7vAFe",
+                    "name": "Regular"
+                  },
+                  "family": false
+                }
+              ]
+            }
+          ],
+          "seatmap": {
+            "staticUrl": "https://mapsapi.tmol.io/maps/geometry/3/event/170065119F309702/staticImage?type=png&systemId=HOST"
+          },
+          "ticketLimit": {
+            "info": "Please note: There is a ticket limit of 4 tickets per person and per credit card on this event."
+          },
+          "ageRestrictions": {
+            "legalAgeEnforced": false
+          },
+          "ticketing": {
+            "safeTix": {
+              "enabled": true
+            },
+            "allInclusivePricing": {
+              "enabled": true
+            }
+          },
+          "nameOrigin": "custom",
+          "ticketTextLines": {
+            "en-us": {
+              "line6": "SAT AUG 21 2027 5PM DOORS ",
+              "line5": "2 *** LAS VEGAS, NV *** 2 ",
+              "line4": "    ALLEGIANT STADIUM     ",
+              "line3": "          *****           ",
+              "line2": "      OASIS LIVE '27      ",
+              "line1": "LIVE NATION & SJM PRESNTS "
+            }
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/events/1kAYvP7_GA2Gaje?locale=en-us"
+            },
+            "attractions": [
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+              },
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+              }
+            ],
+            "venues": [
+              {
+                "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+              }
+            ]
+          },
+          "_embedded": {
+            "venues": [
+              {
+                "name": "Allegiant Stadium",
+                "type": "venue",
+                "id": "KovZ917Ax7n",
+                "test": false,
+                "url": "https://www.ticketmaster.com/allegiant-stadium-tickets-las-vegas/venue/189482",
+                "locale": "en-us",
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dbimages/23729v.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "postalCode": "89118",
+                "timezone": "America/Los_Angeles",
+                "city": {
+                  "name": "Las Vegas"
+                },
+                "state": {
+                  "name": "Nevada",
+                  "stateCode": "NV"
+                },
+                "country": {
+                  "name": "United States Of America",
+                  "countryCode": "US"
+                },
+                "address": {
+                  "line1": "3333 Al Davis Way"
+                },
+                "location": {
+                  "longitude": "-115.18330000",
+                  "latitude": "36.09090000"
+                },
+                "markets": [
+                  {
+                    "name": "Las Vegas",
+                    "id": "14"
+                  }
+                ],
+                "dmas": [
+                  {
+                    "id": 319
+                  }
+                ],
+                "boxOfficeInfo": {
+                  "phoneNumberDetail": "Allegiant Stadium Box Office: 725-780-2100 Visit www.allegiantstadium.com for complete venue information.",
+                  "openHoursDetail": "Standard Hours: Monday - Friday, 11:00AM - 5:00PM Event & Game Day Hours: 4 hours prior to event time/kick-off **Available for guest assistance only - Tickets are NOT sold at the box office**",
+                  "acceptedPaymentDetail": "Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com",
+                  "willCallDetail": "Will Call tickets may be picked up at the Ticketmaster Box Office at Allegiant Stadium beginning 4 hours prior to event time/kick-off. Government issued photo identification is required to claim will call tickets. Will call drop-off tickets are not permitted. Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com"
+                },
+                "parkingDetail": "Parking Passes: -Raiders season parking passes are good for Raiders games only. Parking passes can only be accessed digitally via the Raiders official app. -Single game and event parking passes are available for select lots and can be purchased via the SpotHero app. -Purchasing parking upon arrival is based on availability. We strongly encourage you to purchase your parking pass in advance of the event. Accessible Parking: -All accessible parking spaces require a valid ADA placard or a valid ADA license plate. -If accessible parking is full, ADA placards or plate holders will be offered the next available parking space in the reserved parking lots. -ADA placards or plates alone do not grant access to the Allegiant Stadium lots. Oversized Vehicles: -Oversized vehicles, designated as vehicles longer than 20 feet, and trailers are not permitted. -RVs and oversized vehicles should contact the Oasis RV Park for park and ride options.",
+                "accessibleSeatingDetail": "Accessible seating is located throughout Allegiant Stadium and is available on ticketmaster.com. Please look for seats designated with an accessible icon to purchase. For additional accessible needs or questions, please email boxoffice@allegiantstadium.com or call the box office at 725-780-2100.",
+                "generalInfo": {
+                  "generalRule": "CLEAR BAG POLICY: - Bags must be clear plastic, vinyl or PVC and must not exceed 12 x 6 x 12 - Small clutch bags, 4.5x 6.5 x 2 can be taken into the stadium with one of the approved clear bags * An exception will be made for any necessary medical items after proper inspection at entry. CASHLESS VENUE: Allegiant Stadium is a cashless venue. Cash will not be accepted as a form of payment at any parking, retail, or concession locations. Guests may convert their cash to a debit card by using one of the Cash-to-Card kiosks located throughout the stadium. Any remaining balance on the debit card can be used at locations where debit payments are accepted. PROHIBITED ITEMS: Prohibited items include, but are not limited to, purses larger than a clutch bag, coolers, briefcases, backpacks, fanny packs, cinch bags, seat cushions, luggage of any kind, computer bags, and camera bags or any bag larger than the permissible size. ADDITIONAL VENUE INFO: For complete venue information, policies, and prohibited items, please visit: www.allegiantstadium.com/plan-your-visit",
+                  "childRule": "Children under 24 months do not need a ticket to enter Allegiant Stadium, provided that they are seated on a parents or guardians lap, and do not interfere with the sightlines of others. Children must have a ticket to receive a promotional item. This policy is subject to change on an event by event basis. Any variance will be noted on the event purchase page, More Info tab, on ticketmaster.com."
+                },
+                "upcomingEvents": {
+                  "tmr": 2,
+                  "ticketmaster": 61,
+                  "_total": 63,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+                  }
+                }
+              }
+            ],
+            "attractions": [
+              {
+                "name": "Oasis",
+                "type": "attraction",
+                "id": "K8vZ9171fw7",
+                "test": false,
+                "url": "https://www.ticketmaster.com/oasis-tickets/artist/766720",
+                "locale": "en-us",
+                "externalLinks": {
+                  "twitter": [
+                    {
+                      "url": "@oasis"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "39ab1aed-75e0-4140-bd47-540276886b60",
+                      "url": "https://musicbrainz.org/artist/39ab1aed-75e0-4140-bd47-540276886b60"
+                    }
+                  ]
+                },
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6da",
+                      "name": "Rock"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 30,
+                  "mfx-de": 6,
+                  "trium": 2,
+                  "mfx-it": 6,
+                  "_total": 52,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+                  }
+                }
+              },
+              {
+                "name": "Richard Ashcroft",
+                "type": "attraction",
+                "id": "K8vZ9171tyf",
+                "test": false,
+                "url": "https://www.ticketmaster.com/richard-ashcroft-tickets/artist/955580",
+                "locale": "en-us",
+                "externalLinks": {
+                  "youtube": [
+                    {
+                      "url": "https://www.youtube.com/channel/UCe4D66kzmrI3TI2gPz6WjTw"
+                    }
+                  ],
+                  "twitter": [
+                    {
+                      "url": "https://mobile.twitter.com/richardashcroft"
+                    }
+                  ],
+                  "itunes": [
+                    {
+                      "url": "https://music.apple.com/us/artist/richard-ashcroft/653319"
+                    }
+                  ],
+                  "wiki": [
+                    {
+                      "url": "https://en.wikipedia.org/wiki/Richard_Ashcroft"
+                    }
+                  ],
+                  "facebook": [
+                    {
+                      "url": "https://www.facebook.com/richardashcroft"
+                    }
+                  ],
+                  "spotify": [
+                    {
+                      "url": "https://open.spotify.com/artist/1HGTHrRQkw0BtevSo1jucU"
+                    }
+                  ],
+                  "instagram": [
+                    {
+                      "url": "https://www.instagram.com/richardashcroftofficial/"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "2d1d8985-47bc-4244-8cc3-577584e411f6",
+                      "url": "https://musicbrainz.org/artist/2d1d8985-47bc-4244-8cc3-577584e411f6"
+                    }
+                  ],
+                  "homepage": [
+                    {
+                      "url": "http://www.richardashcroft.com/"
+                    }
+                  ]
+                },
+                "aliases": [
+                  "richard aschcroft",
+                  "richard ashcroft",
+                  "richchard ashcroft"
+                ],
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6F1",
+                      "name": "Pop"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 27,
+                  "mfx-de": 6,
+                  "_total": 41,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Oasis Live '27",
+          "type": "event",
+          "id": "1kAYvP7_GA2u_jk",
+          "test": false,
+          "url": "https://www.ticketmaster.com/oasis-live-27-las-vegas-nevada-08-24-2027/event/170065119F359706",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+              "width": 2426,
+              "height": 1365,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            }
+          ],
+          "sales": {
+            "public": {
+              "startTBD": false,
+              "startTBA": false
+            },
+            "presales": [
+              {
+                "startDateTime": "2026-09-25T18:00:00Z",
+                "endDateTime": "2026-09-25T20:00:00Z",
+                "name": "Friday 11:00 AM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-25T21:00:00Z",
+                "endDateTime": "2026-09-25T23:00:00Z",
+                "name": "Friday 2:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-26T00:00:00Z",
+                "endDateTime": "2027-08-25T06:00:00Z",
+                "name": "Friday 5:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com",
+                "shortDescription": "This sale is for invited fans only"
+              }
+            ]
+          },
+          "dates": {
+            "start": {
+              "localDate": "2027-08-24",
+              "localTime": "19:00:00",
+              "dateTime": "2027-08-25T02:00:00Z",
+              "dateTBD": false,
+              "dateTBA": false,
+              "timeTBA": false,
+              "noSpecificTime": false
+            },
+            "timezone": "America/Los_Angeles",
+            "status": {
+              "code": "onsale"
+            },
+            "spanMultipleDays": false
+          },
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "promoter": {
+            "id": "653",
+            "name": "LIVE NATION MUSIC",
+            "description": "LIVE NATION MUSIC / NTL / USA"
+          },
+          "promoters": [
+            {
+              "id": "653",
+              "name": "LIVE NATION MUSIC",
+              "description": "LIVE NATION MUSIC / NTL / USA"
+            }
+          ],
+          "pleaseNote": "The tour has chosen to use Ticketmaster's Face Value Exchange. If you need to resell your ticket, they recommend that you do so on Ticketmaster for the price you paid. Per the tour's request, ticket transfer and resale will be available by December 31st, 2026. Please note, a valid bank account or debit card within the country of your event is required to sell on the Face Value Exchange.",
+          "products": [
+            {
+              "name": "SPOTHERO ALLEGIANT STADIUM",
+              "id": "169Zkfz-AZA56uCd",
+              "url": "https://www.ticketmaster.com/spothero-allegiant-stadium-las-vegas-nevada-08-24-2027/event/17006538845A6CD2",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7n1",
+                    "name": "Miscellaneous"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7v7ll",
+                    "name": "Undefined"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vAv1",
+                    "name": "Undefined"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7vAva",
+                    "name": "Parking"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7vAFe",
+                    "name": "Regular"
+                  },
+                  "family": false
+                }
+              ]
+            },
+            {
+              "name": "Oasis Live '27 - Associates and Partners Onsale",
+              "id": "1AvjZ_3Gkn9y_oe",
+              "url": "https://www.ticketmaster.com/oasis-live-27-associates-and-partners-las-vegas-nevada-08-24-2027/event/1700652A97E59442",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7vAeA",
+                    "name": "Rock"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7v6F1",
+                    "name": "Pop"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7v7nI",
+                    "name": "Undefined"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7v7lJ",
+                    "name": "Undefined"
+                  },
+                  "family": false
+                }
+              ]
+            }
+          ],
+          "seatmap": {
+            "staticUrl": "https://mapsapi.tmol.io/maps/geometry/3/event/170065119F359706/staticImage?type=png&systemId=HOST"
+          },
+          "ticketLimit": {
+            "info": "Please note: There is a ticket limit of 4 tickets per person and per credit card on this event."
+          },
+          "ageRestrictions": {
+            "legalAgeEnforced": false
+          },
+          "ticketing": {
+            "safeTix": {
+              "enabled": true
+            },
+            "allInclusivePricing": {
+              "enabled": true
+            }
+          },
+          "nameOrigin": "custom",
+          "ticketTextLines": {
+            "en-us": {
+              "line6": "TUE AUG 24 2027 5PM DOORS ",
+              "line5": "3 *** LAS VEGAS, NV *** 3 ",
+              "line4": "    ALLEGIANT STADIUM     ",
+              "line3": "          *****           ",
+              "line2": "      OASIS LIVE '27      ",
+              "line1": "LIVE NATION & SJM PRESNTS "
+            }
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/events/1kAYvP7_GA2u_jk?locale=en-us"
+            },
+            "attractions": [
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+              },
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+              }
+            ],
+            "venues": [
+              {
+                "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+              }
+            ]
+          },
+          "_embedded": {
+            "venues": [
+              {
+                "name": "Allegiant Stadium",
+                "type": "venue",
+                "id": "KovZ917Ax7n",
+                "test": false,
+                "url": "https://www.ticketmaster.com/allegiant-stadium-tickets-las-vegas/venue/189482",
+                "locale": "en-us",
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dbimages/23729v.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "postalCode": "89118",
+                "timezone": "America/Los_Angeles",
+                "city": {
+                  "name": "Las Vegas"
+                },
+                "state": {
+                  "name": "Nevada",
+                  "stateCode": "NV"
+                },
+                "country": {
+                  "name": "United States Of America",
+                  "countryCode": "US"
+                },
+                "address": {
+                  "line1": "3333 Al Davis Way"
+                },
+                "location": {
+                  "longitude": "-115.18330000",
+                  "latitude": "36.09090000"
+                },
+                "markets": [
+                  {
+                    "name": "Las Vegas",
+                    "id": "14"
+                  }
+                ],
+                "dmas": [
+                  {
+                    "id": 319
+                  }
+                ],
+                "boxOfficeInfo": {
+                  "phoneNumberDetail": "Allegiant Stadium Box Office: 725-780-2100 Visit www.allegiantstadium.com for complete venue information.",
+                  "openHoursDetail": "Standard Hours: Monday - Friday, 11:00AM - 5:00PM Event & Game Day Hours: 4 hours prior to event time/kick-off **Available for guest assistance only - Tickets are NOT sold at the box office**",
+                  "acceptedPaymentDetail": "Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com",
+                  "willCallDetail": "Will Call tickets may be picked up at the Ticketmaster Box Office at Allegiant Stadium beginning 4 hours prior to event time/kick-off. Government issued photo identification is required to claim will call tickets. Will call drop-off tickets are not permitted. Tickets are NOT sold at the Box Office windows. Verified tickets are available exclusively at www.ticketmaster.com"
+                },
+                "parkingDetail": "Parking Passes: -Raiders season parking passes are good for Raiders games only. Parking passes can only be accessed digitally via the Raiders official app. -Single game and event parking passes are available for select lots and can be purchased via the SpotHero app. -Purchasing parking upon arrival is based on availability. We strongly encourage you to purchase your parking pass in advance of the event. Accessible Parking: -All accessible parking spaces require a valid ADA placard or a valid ADA license plate. -If accessible parking is full, ADA placards or plate holders will be offered the next available parking space in the reserved parking lots. -ADA placards or plates alone do not grant access to the Allegiant Stadium lots. Oversized Vehicles: -Oversized vehicles, designated as vehicles longer than 20 feet, and trailers are not permitted. -RVs and oversized vehicles should contact the Oasis RV Park for park and ride options.",
+                "accessibleSeatingDetail": "Accessible seating is located throughout Allegiant Stadium and is available on ticketmaster.com. Please look for seats designated with an accessible icon to purchase. For additional accessible needs or questions, please email boxoffice@allegiantstadium.com or call the box office at 725-780-2100.",
+                "generalInfo": {
+                  "generalRule": "CLEAR BAG POLICY: - Bags must be clear plastic, vinyl or PVC and must not exceed 12 x 6 x 12 - Small clutch bags, 4.5x 6.5 x 2 can be taken into the stadium with one of the approved clear bags * An exception will be made for any necessary medical items after proper inspection at entry. CASHLESS VENUE: Allegiant Stadium is a cashless venue. Cash will not be accepted as a form of payment at any parking, retail, or concession locations. Guests may convert their cash to a debit card by using one of the Cash-to-Card kiosks located throughout the stadium. Any remaining balance on the debit card can be used at locations where debit payments are accepted. PROHIBITED ITEMS: Prohibited items include, but are not limited to, purses larger than a clutch bag, coolers, briefcases, backpacks, fanny packs, cinch bags, seat cushions, luggage of any kind, computer bags, and camera bags or any bag larger than the permissible size. ADDITIONAL VENUE INFO: For complete venue information, policies, and prohibited items, please visit: www.allegiantstadium.com/plan-your-visit",
+                  "childRule": "Children under 24 months do not need a ticket to enter Allegiant Stadium, provided that they are seated on a parents or guardians lap, and do not interfere with the sightlines of others. Children must have a ticket to receive a promotional item. This policy is subject to change on an event by event basis. Any variance will be noted on the event purchase page, More Info tab, on ticketmaster.com."
+                },
+                "upcomingEvents": {
+                  "tmr": 2,
+                  "ticketmaster": 61,
+                  "_total": 63,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/venues/KovZ917Ax7n?locale=en-us"
+                  }
+                }
+              }
+            ],
+            "attractions": [
+              {
+                "name": "Oasis",
+                "type": "attraction",
+                "id": "K8vZ9171fw7",
+                "test": false,
+                "url": "https://www.ticketmaster.com/oasis-tickets/artist/766720",
+                "locale": "en-us",
+                "externalLinks": {
+                  "twitter": [
+                    {
+                      "url": "@oasis"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "39ab1aed-75e0-4140-bd47-540276886b60",
+                      "url": "https://musicbrainz.org/artist/39ab1aed-75e0-4140-bd47-540276886b60"
+                    }
+                  ]
+                },
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6da",
+                      "name": "Rock"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 30,
+                  "mfx-de": 6,
+                  "trium": 2,
+                  "mfx-it": 6,
+                  "_total": 52,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+                  }
+                }
+              },
+              {
+                "name": "Richard Ashcroft",
+                "type": "attraction",
+                "id": "K8vZ9171tyf",
+                "test": false,
+                "url": "https://www.ticketmaster.com/richard-ashcroft-tickets/artist/955580",
+                "locale": "en-us",
+                "externalLinks": {
+                  "youtube": [
+                    {
+                      "url": "https://www.youtube.com/channel/UCe4D66kzmrI3TI2gPz6WjTw"
+                    }
+                  ],
+                  "twitter": [
+                    {
+                      "url": "https://mobile.twitter.com/richardashcroft"
+                    }
+                  ],
+                  "itunes": [
+                    {
+                      "url": "https://music.apple.com/us/artist/richard-ashcroft/653319"
+                    }
+                  ],
+                  "wiki": [
+                    {
+                      "url": "https://en.wikipedia.org/wiki/Richard_Ashcroft"
+                    }
+                  ],
+                  "facebook": [
+                    {
+                      "url": "https://www.facebook.com/richardashcroft"
+                    }
+                  ],
+                  "spotify": [
+                    {
+                      "url": "https://open.spotify.com/artist/1HGTHrRQkw0BtevSo1jucU"
+                    }
+                  ],
+                  "instagram": [
+                    {
+                      "url": "https://www.instagram.com/richardashcroftofficial/"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "2d1d8985-47bc-4244-8cc3-577584e411f6",
+                      "url": "https://musicbrainz.org/artist/2d1d8985-47bc-4244-8cc3-577584e411f6"
+                    }
+                  ],
+                  "homepage": [
+                    {
+                      "url": "http://www.richardashcroft.com/"
+                    }
+                  ]
+                },
+                "aliases": [
+                  "richard aschcroft",
+                  "richard ashcroft",
+                  "richchard ashcroft"
+                ],
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/ca6/f3a56781-f64a-4a97-bb56-a90641a3aca6_252031_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6F1",
+                      "name": "Pop"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 27,
+                  "mfx-de": 6,
+                  "_total": 41,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171tyf?locale=en-us"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Oasis Live '27",
+          "type": "event",
+          "id": "vv1AvZkftGkeHnJ-E",
+          "test": false,
+          "url": "https://www.ticketmaster.com/oasis-live-27-foxborough-massachusetts-08-10-2027/event/01006529BCAA6867",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+              "width": 2426,
+              "height": 1365,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            }
+          ],
+          "sales": {
+            "public": {
+              "startTBD": false,
+              "startTBA": false
+            },
+            "presales": [
+              {
+                "startDateTime": "2026-09-25T15:00:00Z",
+                "endDateTime": "2026-09-25T17:00:00Z",
+                "name": "Friday 11:00 AM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com.",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-25T18:00:00Z",
+                "endDateTime": "2026-09-25T20:00:00Z",
+                "name": "Friday 2:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com.",
+                "shortDescription": "This sale is for invited fans only"
+              },
+              {
+                "startDateTime": "2026-09-25T21:00:00Z",
+                "endDateTime": "2027-08-11T01:00:00Z",
+                "name": "Friday 5:00 PM Onsale",
+                "description": "This onsale is exclusively available to fans who registered and were randomly selected to receive a unique access code. Instructions on how to access the onsale will be included in the code email sent to selected fans by oasis@openstageit.com.",
+                "shortDescription": "This sale is for invited fans only"
+              }
+            ]
+          },
+          "dates": {
+            "start": {
+              "localDate": "2027-08-10",
+              "localTime": "19:00:00",
+              "dateTime": "2027-08-10T23:00:00Z",
+              "dateTBD": false,
+              "dateTBA": false,
+              "timeTBA": false,
+              "noSpecificTime": false
+            },
+            "timezone": "America/New_York",
+            "status": {
+              "code": "onsale"
+            },
+            "spanMultipleDays": false
+          },
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "promoter": {
+            "id": "653",
+            "name": "LIVE NATION MUSIC",
+            "description": "LIVE NATION MUSIC / NTL / USA"
+          },
+          "promoters": [
+            {
+              "id": "653",
+              "name": "LIVE NATION MUSIC",
+              "description": "LIVE NATION MUSIC / NTL / USA"
+            },
+            {
+              "id": "494",
+              "name": "PROMOTED BY VENUE",
+              "description": "PROMOTED BY VENUE / NTL / USA"
+            }
+          ],
+          "pleaseNote": "The tour has chosen to use Ticketmaster's Face Value Exchange. If you need to resell your ticket, they recommend that you do so on Ticketmaster for the price you paid. Per the tour's request, ticket transfer and resale will be available by December 31st, 2026. Please note, a valid bank account or debit card within the country of your event is required to sell on the Face Value Exchange.",
+          "products": [
+            {
+              "name": "Oasis Live '27 - Associates and Partners Onsale",
+              "id": "vv1AvZkfgGkeE4GF1",
+              "url": "https://www.ticketmaster.com/oasis-live-27-associates-and-partners-foxborough-massachusetts-08-10-2027/event/01006535A754C20A",
+              "type": "Upsell",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7nJ",
+                    "name": "Music"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7vAeA",
+                    "name": "Rock"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7v6F1",
+                    "name": "Pop"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7v7nI",
+                    "name": "Undefined"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7v7lJ",
+                    "name": "Undefined"
+                  },
+                  "family": false
+                }
+              ]
+            }
+          ],
+          "seatmap": {
+            "staticUrl": "https://mapsapi.tmol.io/maps/geometry/3/event/01006529BCAA6867/staticImage?type=png&systemId=HOST"
+          },
+          "accessibility": {
+            "ticketLimit": 4
+          },
+          "ticketLimit": {
+            "info": "There is a 4 Ticket Limit on this event"
+          },
+          "ageRestrictions": {
+            "legalAgeEnforced": false
+          },
+          "doorsTimes": {
+            "localDate": "2027-08-10",
+            "localTime": "17:00:00",
+            "dateTime": "2027-08-10T21:00:00Z"
+          },
+          "ticketing": {
+            "safeTix": {
+              "enabled": true
+            },
+            "allInclusivePricing": {
+              "enabled": true
+            }
+          },
+          "nameOrigin": "custom",
+          "ticketTextLines": {
+            "en-us": {
+              "line6": "TUE AUG 10 2027 5PM DOORS ",
+              "line5": "                          ",
+              "line4": "     GILLETTE STADIUM     ",
+              "line3": "                          ",
+              "line2": "      OASIS LIVE '27      ",
+              "line1": "LIVE NATION & SJM PRESENTS"
+            }
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/events/vv1AvZkftGkeHnJ-E?locale=en-us"
+            },
+            "attractions": [
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+              }
+            ],
+            "venues": [
+              {
+                "href": "/discovery/v2/venues/KovZpZA6kvlA?locale=en-us"
+              }
+            ]
+          },
+          "_embedded": {
+            "venues": [
+              {
+                "name": "Gillette Stadium",
+                "type": "venue",
+                "id": "KovZpZA6kvlA",
+                "test": false,
+                "url": "https://www.ticketmaster.com/gillette-stadium-tickets-foxborough/venue/8759",
+                "locale": "en-us",
+                "aliases": [
+                  "gilette",
+                  "gillette",
+                  "gilette stadium",
+                  "gillete stadium"
+                ],
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dbimages/23010v.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "postalCode": "02035",
+                "timezone": "America/New_York",
+                "city": {
+                  "name": "Foxborough"
+                },
+                "state": {
+                  "name": "Massachusetts",
+                  "stateCode": "MA"
+                },
+                "country": {
+                  "name": "United States Of America",
+                  "countryCode": "US"
+                },
+                "address": {
+                  "line1": "1 Patriot Place"
+                },
+                "location": {
+                  "longitude": "-71.264321",
+                  "latitude": "42.090918"
+                },
+                "markets": [
+                  {
+                    "name": "Boston",
+                    "id": "11"
+                  },
+                  {
+                    "name": "New England",
+                    "id": "33"
+                  },
+                  {
+                    "name": "Connecticut",
+                    "id": "124"
+                  }
+                ],
+                "dmas": [
+                  {
+                    "id": 225
+                  },
+                  {
+                    "id": 235
+                  },
+                  {
+                    "id": 238
+                  },
+                  {
+                    "id": 296
+                  },
+                  {
+                    "id": 361
+                  },
+                  {
+                    "id": 363
+                  },
+                  {
+                    "id": 364
+                  },
+                  {
+                    "id": 392
+                  }
+                ],
+                "social": {
+                  "twitter": {
+                    "handle": "@gillettestadium"
+                  }
+                },
+                "boxOfficeInfo": {
+                  "openHoursDetail": "The Gillette Stadium Ticket Office is located in the Enel Plaza, outside of the Ticketmaster gate at the north end of the stadium. The Gillette Stadium Ticket Office is open on event days only and will open with parking lots.",
+                  "acceptedPaymentDetail": "Visa only for New England Patriots. Visa, Mastercard, Amex, Cash-For all other events",
+                  "willCallDetail": "Will call is located at the ticket office. Customers must present photo I.D., the actual credit card used to purchase tickets and the confirmation number. NOTE: If picking up your tickets at Will Call, we strongly recommend arriving at the Ticket Office with a photo I.D. one hour prior to kickoff to claim your seats and avoid any prolonged wait times."
+                },
+                "parkingDetail": "Opening and price varies per event. Please check www.gillettestadium.com for more information.",
+                "accessibleSeatingDetail": "Accessible Seating available through Ticketmaster and the box office.",
+                "generalInfo": {
+                  "generalRule": "No umbrellas, coolers, cans, bottles or alcohol allowed in stadium. Tailgating, picnicing, BBQ's allowed in specific areas of parking lots. No open fires. Gillette has a new Clear Bag Policy! Bags of any kind will not be permitted except for gallon size clear freezer or authorized clear bags measuring 12\"x 12\" x 6\" and women's clutches not to exceed 7\" x 4\" x 2\" (approximately the size of a hand). For more information visit: WWW.GILLETTESTADIUM.COM/BAGPOLICY"
+                },
+                "upcomingEvents": {
+                  "ticketmaster": 14,
+                  "_total": 14,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/venues/KovZpZA6kvlA?locale=en-us"
+                  }
+                }
+              }
+            ],
+            "attractions": [
+              {
+                "name": "Oasis",
+                "type": "attraction",
+                "id": "K8vZ9171fw7",
+                "test": false,
+                "url": "https://www.ticketmaster.com/oasis-tickets/artist/766720",
+                "locale": "en-us",
+                "externalLinks": {
+                  "twitter": [
+                    {
+                      "url": "@oasis"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "39ab1aed-75e0-4140-bd47-540276886b60",
+                      "url": "https://musicbrainz.org/artist/39ab1aed-75e0-4140-bd47-540276886b60"
+                    }
+                  ]
+                },
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_SOURCE",
+                    "width": 2426,
+                    "height": 1365,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/f3b/4e5c700e-50bb-4b8c-9673-9e4f9f2bef3b_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6da",
+                      "name": "Rock"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "mfx-es": 4,
+                  "mfx-nl": 4,
+                  "ticketmaster": 30,
+                  "mfx-de": 6,
+                  "trium": 2,
+                  "mfx-it": 6,
+                  "_total": 52,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171fw7?locale=en-us"
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "name": "Eagles Live at Sphere",
+          "type": "event",
+          "id": "1A9Zk37GkdXVozi",
+          "test": false,
+          "url": "https://www.ticketmaster.com/eagles-live-at-sphere-las-vegas-nevada-11-13-2026/event/17006484FED11E2C",
+          "locale": "en-us",
+          "images": [
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_16_9.jpg",
+              "width": 1024,
+              "height": 576,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_LANDSCAPE_16_9.jpg",
+              "width": 1136,
+              "height": 639,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_PORTRAIT_3_2.jpg",
+              "width": 640,
+              "height": 427,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_ARTIST_PAGE_3_2.jpg",
+              "width": 305,
+              "height": 203,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_3_2.jpg",
+              "width": 1024,
+              "height": 683,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_EVENT_DETAIL_PAGE_16_9.jpg",
+              "width": 205,
+              "height": 115,
+              "fallback": false
+            },
+            {
+              "ratio": "4_3",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_CUSTOM.jpg",
+              "width": 305,
+              "height": 225,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+              "width": 2048,
+              "height": 1152,
+              "fallback": false
+            },
+            {
+              "ratio": "3_2",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_SOURCE",
+              "width": 2426,
+              "height": 1617,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RECOMENDATION_16_9.jpg",
+              "width": 100,
+              "height": 56,
+              "fallback": false
+            },
+            {
+              "ratio": "16_9",
+              "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_PORTRAIT_16_9.jpg",
+              "width": 640,
+              "height": 360,
+              "fallback": false
+            }
+          ],
+          "sales": {
+            "public": {
+              "startDateTime": "2026-05-15T17:00:00Z",
+              "startTBD": false,
+              "startTBA": false,
+              "endDateTime": "2026-11-14T06:30:00Z"
+            },
+            "presales": [
+              {
+                "startDateTime": "2026-05-13T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "Artist Presale"
+              },
+              {
+                "startDateTime": "2026-05-13T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "On The List VIP Package Presale"
+              },
+              {
+                "startDateTime": "2026-05-15T17:00:00Z",
+                "endDateTime": "2026-11-04T06:00:00Z",
+                "name": "On The List VIP Package Onsale"
+              },
+              {
+                "startDateTime": "2026-05-14T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "LIVE NATION PRESALE"
+              },
+              {
+                "startDateTime": "2026-05-14T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "Venue Presale"
+              },
+              {
+                "startDateTime": "2026-05-14T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "Ticketmaster Presale"
+              },
+              {
+                "startDateTime": "2026-05-14T17:00:00Z",
+                "endDateTime": "2026-05-15T16:59:00Z",
+                "name": "Sirius XM Presales"
+              }
+            ]
+          },
+          "dates": {
+            "start": {
+              "localDate": "2026-11-13",
+              "localTime": "20:30:00",
+              "dateTime": "2026-11-14T04:30:00Z",
+              "dateTBD": false,
+              "dateTBA": false,
+              "timeTBA": false,
+              "noSpecificTime": false
+            },
+            "timezone": "America/Los_Angeles",
+            "status": {
+              "code": "onsale"
+            },
+            "spanMultipleDays": false
+          },
+          "classifications": [
+            {
+              "primary": true,
+              "segment": {
+                "id": "KZFzniwnSyZfZ7v7nJ",
+                "name": "Music"
+              },
+              "genre": {
+                "id": "KnvZfZ7vAeA",
+                "name": "Rock"
+              },
+              "subGenre": {
+                "id": "KZazBEonSMnZfZ7v6F1",
+                "name": "Pop"
+              },
+              "type": {
+                "id": "KZAyXgnZfZ7v7nI",
+                "name": "Undefined"
+              },
+              "subType": {
+                "id": "KZFzBErXgnZfZ7v7lJ",
+                "name": "Undefined"
+              },
+              "family": false
+            }
+          ],
+          "promoter": {
+            "id": "653",
+            "name": "LIVE NATION MUSIC",
+            "description": "LIVE NATION MUSIC / NTL / USA"
+          },
+          "promoters": [
+            {
+              "id": "653",
+              "name": "LIVE NATION MUSIC",
+              "description": "LIVE NATION MUSIC / NTL / USA"
+            }
+          ],
+          "info": "PLEASE NOTE: Pricing is all-in and includes fees (before taxes if applicable). This event may include immersive elements such as seat haptics, movement sensations, flashing lights, intense lighting, visual effects, loud noises, and atmospheric simulations. Such elements may aggravate certain medical or physical conditions, and guests should take into consideration these elements, including if they have a history of discomfort or physical symptoms when experiencing them. Visit the Sphere FAQs on thespherevegas.com closer to your event date for the newest event information.",
+          "pleaseNote": "PLEASE NOTE: Pricing is all-in and includes fees (before taxes if applicable). This event may include immersive elements such as seat haptics, movement sensations, flashing lights, intense lighting, visual effects, loud noises, and atmospheric simulations. Such elements may aggravate certain medical or physical conditions, and guests should take into consideration these elements, including if they have a history of discomfort or physical symptoms when experiencing them. Visit the Sphere FAQs on thespherevegas.com closer to your event date for the newest event information.",
+          "products": [
+            {
+              "name": "Sphere Parking (Eagles)",
+              "id": "1A9Zk3vGkdpBLaq",
+              "url": "https://www.ticketmaster.com/sphere-parking-eagles-las-vegas-nevada-11-13-2026/event/17006481D6E9F25D",
+              "type": "Parking",
+              "classifications": [
+                {
+                  "primary": true,
+                  "segment": {
+                    "id": "KZFzniwnSyZfZ7v7n1",
+                    "name": "Miscellaneous"
+                  },
+                  "genre": {
+                    "id": "KnvZfZ7v7ll",
+                    "name": "Undefined"
+                  },
+                  "subGenre": {
+                    "id": "KZazBEonSMnZfZ7vAv1",
+                    "name": "Undefined"
+                  },
+                  "type": {
+                    "id": "KZAyXgnZfZ7vAva",
+                    "name": "Parking"
+                  },
+                  "subType": {
+                    "id": "KZFzBErXgnZfZ7vAFe",
+                    "name": "Regular"
+                  },
+                  "family": false
+                }
+              ]
+            }
+          ],
+          "seatmap": {
+            "staticUrl": "https://mapsapi.tmol.io/maps/geometry/3/event/17006484FED11E2C/staticImage?type=png&systemId=HOST"
+          },
+          "accessibility": {
+            "ticketLimit": 4
+          },
+          "ticketLimit": {
+            "info": "This event has an overall ticket limit of 8."
+          },
+          "ageRestrictions": {
+            "legalAgeEnforced": false
+          },
+          "ticketing": {
+            "safeTix": {
+              "enabled": true
+            },
+            "allInclusivePricing": {
+              "enabled": true
+            }
+          },
+          "nameOrigin": "custom",
+          "ticketTextLines": {
+            "en-us": {
+              "line6": " FRI NOV 13, 2026 8:30PM  ",
+              "line5": " 255 SANDS AVE, LAS VEGAS ",
+              "line4": "          SPHERE          ",
+              "line3": "                          ",
+              "line2": "          EAGLES          ",
+              "line1": "   LIVE NATION PRESENTS   "
+            }
+          },
+          "_links": {
+            "self": {
+              "href": "/discovery/v2/events/1A9Zk37GkdXVozi?locale=en-us"
+            },
+            "attractions": [
+              {
+                "href": "/discovery/v2/attractions/K8vZ9171ob7?locale=en-us"
+              }
+            ],
+            "venues": [
+              {
+                "href": "/discovery/v2/venues/KovZ917Atbr?locale=en-us"
+              }
+            ]
+          },
+          "_embedded": {
+            "venues": [
+              {
+                "name": "Sphere",
+                "type": "venue",
+                "id": "KovZ917Atbr",
+                "test": false,
+                "url": "https://www.ticketmaster.com/sphere-tickets-las-vegas/venue/189524",
+                "locale": "en-us",
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dbimages/22784v.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "postalCode": "89169",
+                "timezone": "America/Los_Angeles",
+                "city": {
+                  "name": "Las Vegas"
+                },
+                "state": {
+                  "name": "Nevada",
+                  "stateCode": "NV"
+                },
+                "country": {
+                  "name": "United States Of America",
+                  "countryCode": "US"
+                },
+                "address": {
+                  "line1": "255 Sands Avenue"
+                },
+                "location": {
+                  "longitude": "-115.16428960",
+                  "latitude": "36.12072670"
+                },
+                "markets": [
+                  {
+                    "name": "Las Vegas",
+                    "id": "14"
+                  }
+                ],
+                "dmas": [
+                  {
+                    "id": 319
+                  }
+                ],
+                "upcomingEvents": {
+                  "ticketmaster": 547,
+                  "_total": 547,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/venues/KovZ917Atbr?locale=en-us"
+                  }
+                }
+              }
+            ],
+            "attractions": [
+              {
+                "name": "Eagles",
+                "type": "attraction",
+                "id": "K8vZ9171ob7",
+                "test": false,
+                "url": "https://www.ticketmaster.com/eagles-tickets/artist/734977",
+                "locale": "en-us",
+                "externalLinks": {
+                  "youtube": [
+                    {
+                      "url": "https://www.youtube.com/channel/UCPTypnDNlOZVnD7MY30_YBw"
+                    }
+                  ],
+                  "itunes": [
+                    {
+                      "url": "https://itunes.apple.com/artist/id1053549"
+                    }
+                  ],
+                  "lastfm": [
+                    {
+                      "url": "https://www.last.fm/music/Eagles"
+                    }
+                  ],
+                  "spotify": [
+                    {
+                      "url": "https://open.spotify.com/artist/0ECwFtbIWEVNwjlrfc6xoL"
+                    }
+                  ],
+                  "facebook": [
+                    {
+                      "url": "https://www.facebook.com/EaglesBand"
+                    }
+                  ],
+                  "wiki": [
+                    {
+                      "url": "https://en.wikipedia.org/wiki/Eagles_(band)"
+                    }
+                  ],
+                  "instagram": [
+                    {
+                      "url": "https://www.instagram.com/eagles/"
+                    }
+                  ],
+                  "musicbrainz": [
+                    {
+                      "id": "f46bd570-5768-462e-b84c-c7c993bbf47e",
+                      "url": "https://musicbrainz.org/artist/f46bd570-5768-462e-b84c-c7c993bbf47e"
+                    }
+                  ],
+                  "homepage": [
+                    {
+                      "url": "https://eagles.com/"
+                    }
+                  ]
+                },
+                "images": [
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_16_9.jpg",
+                    "width": 1024,
+                    "height": 576,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_LANDSCAPE_16_9.jpg",
+                    "width": 1136,
+                    "height": 639,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_PORTRAIT_3_2.jpg",
+                    "width": 640,
+                    "height": 427,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_ARTIST_PAGE_3_2.jpg",
+                    "width": 305,
+                    "height": 203,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_3_2.jpg",
+                    "width": 1024,
+                    "height": 683,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_EVENT_DETAIL_PAGE_16_9.jpg",
+                    "width": 205,
+                    "height": 115,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "4_3",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_CUSTOM.jpg",
+                    "width": 305,
+                    "height": 225,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_TABLET_LANDSCAPE_LARGE_16_9.jpg",
+                    "width": 2048,
+                    "height": 1152,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "3_2",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_SOURCE",
+                    "width": 2426,
+                    "height": 1617,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RECOMENDATION_16_9.jpg",
+                    "width": 100,
+                    "height": 56,
+                    "fallback": false
+                  },
+                  {
+                    "ratio": "16_9",
+                    "url": "https://s1.ticketm.net/dam/a/531/e32ef1da-b869-442c-9357-428baa6f0531_RETINA_PORTRAIT_16_9.jpg",
+                    "width": 640,
+                    "height": 360,
+                    "fallback": false
+                  }
+                ],
+                "classifications": [
+                  {
+                    "primary": true,
+                    "segment": {
+                      "id": "KZFzniwnSyZfZ7v7nJ",
+                      "name": "Music"
+                    },
+                    "genre": {
+                      "id": "KnvZfZ7vAeA",
+                      "name": "Rock"
+                    },
+                    "subGenre": {
+                      "id": "KZazBEonSMnZfZ7v6F1",
+                      "name": "Pop"
+                    },
+                    "type": {
+                      "id": "KZAyXgnZfZ7v7nI",
+                      "name": "Undefined"
+                    },
+                    "subType": {
+                      "id": "KZFzBErXgnZfZ7v7lJ",
+                      "name": "Undefined"
+                    },
+                    "family": false
+                  }
+                ],
+                "upcomingEvents": {
+                  "ticketmaster": 28,
+                  "_total": 28,
+                  "_filtered": 0
+                },
+                "_links": {
+                  "self": {
+                    "href": "/discovery/v2/attractions/K8vZ9171ob7?locale=en-us"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "_links": {
+      "first": {
+        "href": "/discovery/v2/events.json?keyword=music&locale=*&segmentName=Music&page=0&size=5"
+      },
+      "self": {
+        "href": "/discovery/v2/events.json?size=5&keyword=music&locale=*&segmentName=Music"
+      },
+      "next": {
+        "href": "/discovery/v2/events.json?keyword=music&locale=*&segmentName=Music&page=1&size=5"
+      },
+      "last": {
+        "href": "/discovery/v2/events.json?keyword=music&locale=*&segmentName=Music&page=1999&size=5"
+      }
+    },
+    "page": {
+      "size": 5,
+      "totalElements": 10000,
+      "totalPages": 2000,
+      "number": 0
+    }
+  }
+}

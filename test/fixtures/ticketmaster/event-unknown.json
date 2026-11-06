@@ -1,0 +1,17 @@
+{
+  "status": 404,
+  "body": {
+    "errors": [
+      {
+        "_links": {
+          "about": {
+            "href": "/discovery/v2/errors.html#DIS1004"
+          }
+        },
+        "code": "DIS1004",
+        "detail": "Resource not found with provided criteria (locale=*, id=ZZZ-momento-does-not-exist)",
+        "status": "404"
+      }
+    ]
+  }
+}

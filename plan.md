@@ -3,7 +3,7 @@
 > Status: **APPROVED (2026-11-06)**. Phase 3 of the workflow. Implements [spec.md](spec.md).
 > Executed one milestone at a time, with your review between milestones.
 >
-> Progress: T0.1 ✅
+> Progress: T0.1 ✅ · T0.2 ✅
 
 ## How each task is executed (TDD)
 
@@ -180,7 +180,7 @@ services are used only in the manual smoke test (T7.2).
 
 ### T4.2 Ticketmaster provider
 
-- `search`, `getById` and `listCategories` with:
+- `search`, `getById`, `getByIds` (at most 20 IDs per batch) and `listCategories` with:
   - an 8-second timeout,
   - the 4 calls/second limiter,
   - the lru-cache lifetimes from spec §8,
@@ -218,14 +218,14 @@ services are used only in the manual smoke test (T7.2).
 ### T5.1 SavedEvent model and service
 
 - `save` checks that the event exists, does nothing if it's already saved, and enforces the 100 limit.
-- `list` is paginated, loads details with at most 4 calls at a time, and marks events Ticketmaster no longer has as `available:false`.
+- `list` is paginated, loads a page of details with one `getByIds` batch (skipping cached events), and marks IDs missing from the response as `available:false`.
 - `remove` does nothing if the event wasn't saved.
 - **Tests:**
   - Saving the same event twice keeps one record.
   - The 101st save returns 409 `SAVED_LIMIT_REACHED`.
   - Saving an event that doesn't exist returns 404.
   - The list is sorted newest first, and a missing event shows as `available:false, event:null`.
-  - No more than 4 provider calls run at once.
+  - A page of 20 saved events makes at most one provider call (zero if all are cached).
   - Users can't see each other's saved events.
 
 ### T5.2 Saved events routes
@@ -307,15 +307,15 @@ M0 (T0.1 → T0.2)
 
 ## Integration risks
 
-| Risk                                                                                                | Mitigation                                                                                       |
-| --------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| The in-memory MongoDB downloads a MongoDB binary (about 100 MB) the first time tests run on Windows | Expected and one-off; the binary is cached afterwards. The first test run gets a longer timeout. |
-| ES modules combined with Vitest, Mongoose and jose                                                  | Settled in T0.1 with a smoke test before any feature work                                        |
-| Ticketmaster facts not yet confirmed (several IDs per request, response for unknown IDs)            | The T0.2 spike happens before the mapping and provider code                                      |
-| The 5,000/day Ticketmaster limit is hit during My Events development                                | Caching, a limit of 4 calls at a time, and tests that use fixtures, never the real API           |
-| Google ID token `aud` differs between Android and iOS clients                                       | `GOOGLE_CLIENT_IDS` accepts a list. Checked end to end in the frontend phase.                    |
-| Atlas refuses connections from IPs not on its allowlist                                             | Listed in Prerequisites. `/health` shows `db:'down'` to make the problem obvious.                |
-| The SDK's structured output calls differ from what we expect                                        | Checked against the official SDK docs in T6.2, before writing the code                           |
+| Risk                                                                                                | Mitigation                                                                                          |
+| --------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| The in-memory MongoDB downloads a MongoDB binary (about 100 MB) the first time tests run on Windows | Expected and one-off; the binary is cached afterwards. The first test run gets a longer timeout.    |
+| ES modules combined with Vitest, Mongoose and jose                                                  | Settled in T0.1 with a smoke test before any feature work                                           |
+| Ticketmaster facts not yet confirmed (several IDs per request, response for unknown IDs)            | The T0.2 spike happens before the mapping and provider code                                         |
+| The 5,000/day Ticketmaster limit is hit during My Events development                                | Caching, one batch call per page (spike-confirmed), and tests that use fixtures, never the real API |
+| Google ID token `aud` differs between Android and iOS clients                                       | `GOOGLE_CLIENT_IDS` accepts a list. Checked end to end in the frontend phase.                       |
+| Atlas refuses connections from IPs not on its allowlist                                             | Listed in Prerequisites. `/health` shows `db:'down'` to make the problem obvious.                   |
+| The SDK's structured output calls differ from what we expect                                        | Checked against the official SDK docs in T6.2, before writing the code                              |
 
 ## Out of scope for this plan
 
