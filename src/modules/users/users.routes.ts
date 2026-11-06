@@ -4,6 +4,7 @@ import { z } from 'zod';
 import { validate } from '../../middleware/validate.js';
 import { LANGUAGES } from '../../models/user.model.js';
 import { nameSchema } from '../auth/auth.schemas.js';
+import { deleteAccount } from './users.service.js';
 
 /** Accepts international numbers ("+254 712 345 678") and stores them as E.164 ("+254712345678"). */
 const phoneSchema = z
@@ -45,6 +46,12 @@ export function createUsersRouter(deps: { requireAuth: RequestHandler }): Router
     if (changes.phone !== undefined) user.set('phone', changes.phone ?? undefined);
     await user.save();
     res.json({ user });
+  });
+
+  // Irreversible. The app should ask the user to confirm before calling it.
+  router.delete('/me', deps.requireAuth, async (req, res) => {
+    await deleteAccount(req.user!.id);
+    res.status(204).end();
   });
 
   return router;

@@ -61,16 +61,16 @@ The first test run downloads a MongoDB server binary (~800 MB) for the in-memory
 Base path `/api/v1`. Send `Authorization: Bearer <accessToken>` on everything except auth and `/health`.
 Errors always look like `{ "error": { "code", "message", "details?" } }`. The full contract is in [spec.md §7](spec.md).
 
-| Method & path                                          | Purpose                                                                    |
-| ------------------------------------------------------ | -------------------------------------------------------------------------- |
-| `POST /auth/register` · `/auth/login` · `/auth/google` | Sign up / sign in. Returns `{ user, accessToken, refreshToken }`           |
-| `POST /auth/refresh` · `/auth/logout`                  | Rotate tokens / revoke a refresh token                                     |
-| `GET /me` · `PATCH /me`                                | Profile: first name, last name, phone (E.164), language (`en`, `fr`, `sw`) |
-| `GET /events?q=&category=&page=&size=`                 | Search upcoming events                                                     |
-| `GET /events/categories` · `GET /events/:id`           | Category list / event details                                              |
-| `GET` · `POST` · `DELETE /me/saved-events`             | My Events (event ids only; details loaded live)                            |
-| `POST /events/:id/personalize`                         | `{ shorten, translateTo? }`. AI runs only on these explicit choices.       |
-| `GET /health`                                          | Liveness and database status                                               |
+| Method & path                                          | Purpose                                                                                    |
+| ------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `POST /auth/register` · `/auth/login` · `/auth/google` | Sign up / sign in. Returns `{ user, accessToken, refreshToken }`                           |
+| `POST /auth/refresh` · `/auth/logout`                  | Rotate tokens / revoke a refresh token                                                     |
+| `GET /me` · `PATCH /me` · `DELETE /me`                 | Profile: first name, last name, phone (E.164), language (`en`, `fr`, `sw`); delete account |
+| `GET /events?q=&category=&page=&size=`                 | Search upcoming events                                                                     |
+| `GET /events/categories` · `GET /events/:id`           | Category list / event details                                                              |
+| `GET` · `POST` · `DELETE /me/saved-events`             | My Events (event ids only; details loaded live)                                            |
+| `POST /events/:id/personalize`                         | `{ shorten, translateTo? }`. AI runs only on these explicit choices.                       |
+| `GET /health`                                          | Liveness and database status                                                               |
 
 [requests.http](requests.http) has ready-made requests for the VS Code REST Client extension.
 

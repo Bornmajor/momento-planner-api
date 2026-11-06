@@ -34,7 +34,7 @@ src/
 
   modules/             One folder per feature: routes (HTTP) → service (rules) → providers/models
     auth/              Register, login, Google sign-in, refresh, logout; passwords and tokens
-    users/             GET/PATCH /me (profile)
+    users/             GET/PATCH /me (profile), DELETE /me (account deletion)
     events/            Search, details, categories; the Event type and category list
     saved-events/      My Events (save, list, remove)
     personalize/       AI personalization: quota, cache, facts built by code

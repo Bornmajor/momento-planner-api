@@ -210,10 +210,11 @@ A malformed JSON body returns `VALIDATION_ERROR`.
 
 ### Profile (auth required)
 
-| Method & path | Body                                                      | 2xx response   |
-| ------------- | --------------------------------------------------------- | -------------- |
-| `GET /me`     | —                                                         | `200 { user }` |
-| `PATCH /me`   | Any of `{ firstName, lastName, phone \| null, language }` | `200 { user }` |
+| Method & path | Body                                                      | 2xx response                                                                                                                            |
+| ------------- | --------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `GET /me`     | —                                                         | `200 { user }`                                                                                                                          |
+| `PATCH /me`   | Any of `{ firstName, lastName, phone \| null, language }` | `200 { user }`                                                                                                                          |
+| `DELETE /me`  | —                                                         | `204`. Permanently deletes the user, their sessions, saved events and AI usage. The shared AI cache holds no personal data and is kept. |
 
 `user` = `{ id, email, firstName, lastName, phone, language, authProviders: ('password'|'google')[], createdAt }`.
 
@@ -396,11 +397,12 @@ A malformed JSON body returns `VALIDATION_ERROR`.
 
 ## 12. Decisions log
 
-| #   | Decision                | Outcome                                                                                                                                               |
-| --- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1   | AI model                | `claude-haiku-5-5` (configurable through `AI_MODEL`)                                                                                                  |
-| 2   | Where the backend lives | Separate project at `C:\Users\Admin\Documents\node\momento-planner-api`, with this spec in that project                                               |
-| 3   | MongoDB for development | Free MongoDB Atlas tier (Docker and MongoDB aren't installed). Tests use an in-memory MongoDB.                                                        |
-| 4   | Saved events limit      | 100 per user                                                                                                                                          |
-| 5   | Event coverage          | English-speaking countries only (GB, US, IE, AU, NZ, CA) for Version 1, because Ticketmaster's language filter is unreliable. Worldwide events later. |
-| 6   | When the AI runs        | Only on an explicit user choice: `{ shorten, translateTo? }`, at least one. Translating an (English) event into English skips the AI.                 |
+| #   | Decision                | Outcome                                                                                                                                                              |
+| --- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | AI model                | `claude-haiku-5-5` (configurable through `AI_MODEL`)                                                                                                                 |
+| 2   | Where the backend lives | Separate project at `C:\Users\Admin\Documents\node\momento-planner-api`, with this spec in that project                                                              |
+| 3   | MongoDB for development | Free MongoDB Atlas tier (Docker and MongoDB aren't installed). Tests use an in-memory MongoDB.                                                                       |
+| 4   | Saved events limit      | 100 per user                                                                                                                                                         |
+| 5   | Event coverage          | English-speaking countries only (GB, US, IE, AU, NZ, CA) for Version 1, because Ticketmaster's language filter is unreliable. Worldwide events later.                |
+| 6   | When the AI runs        | Only on an explicit user choice: `{ shorten, translateTo? }`, at least one. Translating an (English) event into English skips the AI.                                |
+| 7   | Account deletion        | `DELETE /me` added after the Version 1 build (2026-11-06): immediate, permanent delete, confirmed in the app. No password re-entry, since Google accounts have none. |

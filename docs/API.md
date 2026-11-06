@@ -66,10 +66,11 @@ Register, login and Google sign-in share **10 attempts per 15 minutes per IP**.
 
 ### Profile
 
-| Request     | Body                                              | Success        |
-| ----------- | ------------------------------------------------- | -------------- |
-| `GET /me`   | —                                                 | `200 { user }` |
-| `PATCH /me` | Any of `{ firstName, lastName, phone, language }` | `200 { user }` |
+| Request      | Body                                              | Success                                            |
+| ------------ | ------------------------------------------------- | -------------------------------------------------- |
+| `GET /me`    | —                                                 | `200 { user }`                                     |
+| `PATCH /me`  | Any of `{ firstName, lastName, phone, language }` | `200 { user }`                                     |
+| `DELETE /me` | —                                                 | `204`. Deletes the account permanently (see below) |
 
 ```json
 {
@@ -89,6 +90,9 @@ Register, login and Google sign-in share **10 attempts per 15 minutes per IP**.
 - `phone` must be international: start with `+` and a country code. It comes back normalized (`+254712345678`).
   Send `null` to clear it.
 - `language` is `en`, `fr` or `sw`. Send it whenever the user changes the app language.
+- **`DELETE /me`** permanently deletes the account and everything tied to it: sessions, saved events and AI usage.
+  It can't be undone, so ask the user to confirm first. Afterwards, clear the stored tokens and remove the
+  calendar entries the app created (their ids are on the device). The email can then be used to sign up again.
 - Email can't be changed. Users who signed up with Google may have an empty `lastName`.
 
 ### Events
@@ -220,7 +224,6 @@ const { items, totalPages } = await res.json();
 
 ## Not available in Version 1
 
-- **Account deletion and password change.** There's no `DELETE /me`. Users can read (`GET /me`) and update
-  (`PATCH /me`) their profile, and accounts are created by register or Google sign-in.
+- **Password change.** Not available yet.
 - **Email verification and forgot-password.** The app shows these screens as templates only.
 - **Sign in with Apple, location filtering, recommendations, offline mode.** Future features (intent.md).
