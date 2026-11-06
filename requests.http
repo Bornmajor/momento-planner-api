@@ -1,0 +1,84 @@
+### Momento Planner API — requests for the VS Code "REST Client" extension.
+### Run "register" (or "login") first; later requests reuse its tokens.
+
+@base = http://localhost:4000/api/v1
+
+### Health
+GET http://localhost:4000/health
+
+### Register
+# @name register
+POST {{base}}/auth/register
+Content-Type: application/json
+
+{ "email": "ada@example.com", "password": "Passw0rd!", "firstName": "Ada", "lastName": "Lovelace" }
+
+### Login
+# @name login
+POST {{base}}/auth/login
+Content-Type: application/json
+
+{ "email": "ada@example.com", "password": "Passw0rd!" }
+
+@token = {{login.response.body.accessToken}}
+@refresh = {{login.response.body.refreshToken}}
+
+### My profile
+GET {{base}}/me
+Authorization: Bearer {{token}}
+
+### Update profile
+PATCH {{base}}/me
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "language": "sw", "phone": "+254 712 345 678" }
+
+### Categories
+GET {{base}}/events/categories
+Authorization: Bearer {{token}}
+
+### Search events
+# @name search
+GET {{base}}/events?category=music&q=jazz&page=0&size=10
+Authorization: Bearer {{token}}
+
+@eventId = {{search.response.body.items[0].id}}
+
+### Event details
+GET {{base}}/events/{{eventId}}
+Authorization: Bearer {{token}}
+
+### Personalize: shorten + Swahili
+POST {{base}}/events/{{eventId}}/personalize
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "shorten": true, "translateTo": "sw" }
+
+### Save event
+POST {{base}}/me/saved-events
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{ "eventId": "{{eventId}}" }
+
+### My Events
+GET {{base}}/me/saved-events?page=0&size=20
+Authorization: Bearer {{token}}
+
+### Remove saved event
+DELETE {{base}}/me/saved-events/{{eventId}}
+Authorization: Bearer {{token}}
+
+### Refresh tokens
+POST {{base}}/auth/refresh
+Content-Type: application/json
+
+{ "refreshToken": "{{refresh}}" }
+
+### Logout
+POST {{base}}/auth/logout
+Content-Type: application/json
+
+{ "refreshToken": "{{refresh}}" }
