@@ -28,7 +28,13 @@ export function createSavedEventsService(deps: { events: EventProvider; limit?: 
     }
 
     try {
-      return { savedEvent: await SavedEvent.create({ userId, source: SOURCE, eventId }), created: true };
+      const savedEvent = await SavedEvent.create({ userId, source: SOURCE, eventId });
+      // The count check above can race with a concurrent save; re-check and undo if it overshot.
+      if ((await SavedEvent.countDocuments({ userId })) > limit) {
+        await SavedEvent.deleteOne({ _id: savedEvent._id });
+        throw new AppError('SAVED_LIMIT_REACHED', `You can save at most ${limit} events`);
+      }
+      return { savedEvent, created: true };
     } catch (err) {
       // Two concurrent saves of the same event: the unique index lets only one through.
       if ((err as { code?: number }).code === 11000) {

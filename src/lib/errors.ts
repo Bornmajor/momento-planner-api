@@ -16,7 +16,10 @@ export const ERROR_STATUS = {
 
 export type ErrorCode = keyof typeof ERROR_STATUS;
 
-/** An expected error that is safe to show to the client. Anything else becomes 500 INTERNAL. */
+/**
+ * An expected error that is safe to show to the client. Anything else becomes 500 INTERNAL.
+ * `details` is sent to the client; `cause` is only logged (use it for internal reasons).
+ */
 export class AppError extends Error {
   readonly status: number;
 
@@ -24,8 +27,9 @@ export class AppError extends Error {
     readonly code: ErrorCode,
     message: string,
     readonly details?: unknown,
+    options?: { cause?: unknown },
   ) {
-    super(message);
+    super(message, options);
     this.name = 'AppError';
     this.status = ERROR_STATUS[code];
   }

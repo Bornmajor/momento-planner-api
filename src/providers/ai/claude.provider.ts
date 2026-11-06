@@ -24,8 +24,11 @@ function realClient(apiKey: string): ClaudeParseClient {
   };
 }
 
+// The reason is logged (as the cause), never sent to clients.
 const unavailable = (reason: string) =>
-  new AppError('UPSTREAM_UNAVAILABLE', 'The AI service is unavailable, please try again', { reason });
+  new AppError('UPSTREAM_UNAVAILABLE', 'The AI service is unavailable, please try again', undefined, {
+    cause: new Error(reason),
+  });
 
 export function createClaudeProvider(options: {
   model: string;

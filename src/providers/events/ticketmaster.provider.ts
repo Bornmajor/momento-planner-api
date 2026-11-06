@@ -29,8 +29,11 @@ interface TmSearchBody {
 }
 
 const NOT_FOUND = Symbol('not-found');
+// The reason is logged (as the cause), never sent to clients.
 const unavailable = (reason: string) =>
-  new AppError('UPSTREAM_UNAVAILABLE', 'The event service is unavailable, please try again', { reason });
+  new AppError('UPSTREAM_UNAVAILABLE', 'The event service is unavailable, please try again', undefined, {
+    cause: new Error(reason),
+  });
 
 export function createTicketmasterProvider(options: TicketmasterOptions): EventProvider {
   const fetchFn = options.fetchFn ?? fetch;

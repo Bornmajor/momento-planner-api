@@ -69,7 +69,10 @@ export function createAuthService({ tokens, googleVerifier, bcryptRounds }: Auth
     if (!user) {
       const existing = await User.findOne({ email });
       if (existing) {
-        if (!profile.emailVerified) throw emailTaken();
+        // Link only when Google verified the email, and never replace a different linked Google account.
+        if (!profile.emailVerified || (existing.googleId && existing.googleId !== profile.sub)) {
+          throw emailTaken();
+        }
         existing.googleId = profile.sub;
         user = await existing.save();
       } else {

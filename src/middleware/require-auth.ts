@@ -9,7 +9,8 @@ const unauthenticated = () => new AppError('UNAUTHENTICATED', 'Authentication re
 /** Requires `Authorization: Bearer <access token>` for an existing user, and sets `req.user`. */
 export function createRequireAuth(deps: { tokens: Pick<TokenService, 'verifyAccessToken'> }): RequestHandler {
   return async (req, _res, next) => {
-    const match = /^Bearer (\S+)$/.exec(req.get('authorization') ?? '');
+    // The auth scheme name is case-insensitive (RFC 7235), so "bearer" is accepted too.
+    const match = /^Bearer (\S+)$/i.exec(req.get('authorization') ?? '');
     if (!match) throw unauthenticated();
 
     const { userId } = await deps.tokens.verifyAccessToken(match[1]!);

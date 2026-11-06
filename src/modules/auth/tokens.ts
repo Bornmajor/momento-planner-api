@@ -55,14 +55,18 @@ export function createTokenService(config: TokenServiceConfig) {
   }
 
   async function issueRefreshToken(userId: string, family: string = randomUUID()): Promise<string> {
+    return (await createRefreshToken(userId, family)).raw;
+  }
+
+  async function createRefreshToken(userId: string, family: string) {
     const raw = randomBytes(32).toString('base64url');
-    await RefreshToken.create({
+    const doc = await RefreshToken.create({
       userId,
       tokenHash: hashToken(raw),
       family,
       expiresAt: new Date(now().getTime() + config.refreshTtlDays * 86_400_000),
     });
-    return raw;
+    return { raw, id: doc._id };
   }
 
   async function revokeFamily(family: string): Promise<void> {
@@ -90,10 +94,9 @@ export function createTokenService(config: TokenServiceConfig) {
     }
 
     const userId = current.userId.toString();
-    const next = await issueRefreshToken(userId, current.family);
-    const nextDoc = await RefreshToken.findOne({ tokenHash: hashToken(next) }, { _id: 1 });
-    await RefreshToken.updateOne({ _id: current._id }, { replacedBy: nextDoc!._id });
-    return { userId, refreshToken: next };
+    const next = await createRefreshToken(userId, current.family);
+    await RefreshToken.updateOne({ _id: current._id }, { replacedBy: next.id });
+    return { userId, refreshToken: next.raw };
   }
 
   async function revokeRefreshToken(raw: string): Promise<void> {

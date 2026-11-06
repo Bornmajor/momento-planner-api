@@ -38,6 +38,13 @@ describe('requireAuth', () => {
     expect(res.body).toEqual({ userId: user.id, email: 'ada@example.com' });
   });
 
+  it('accepts the scheme name in any case ("bearer")', async () => {
+    const user = await createUser();
+    const token = await tokens.signAccessToken(user.id);
+    const res = await request(app).get('/protected').set('Authorization', `bearer ${token}`);
+    expect(res.status).toBe(200);
+  });
+
   it.each([
     ['no header', undefined],
     ['wrong scheme', 'Basic abc'],

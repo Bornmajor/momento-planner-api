@@ -51,7 +51,8 @@ const server = app.listen(env.port, () => logger.info(`API listening on http://l
 
 async function shutdown(signal: string) {
   logger.info(`${signal} received, shutting down`);
-  server.close();
+  // Stop accepting connections and let in-flight requests finish before closing the database.
+  await new Promise<void>((resolve) => server.close(() => resolve()));
   await disconnectDb();
   process.exit(0);
 }

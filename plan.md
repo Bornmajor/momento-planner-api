@@ -3,7 +3,7 @@
 > Status: **APPROVED (2026-11-06)**. Phase 3 of the workflow. Implements [spec.md](spec.md).
 > Executed in **3 batches** (regrouped 2026-11-06 for speed), with your review between batches.
 >
-> Progress: T0.1 ✅ · T0.2 ✅ · **Batch A ✅** (T1.1–T3.1) · **Batch B ✅** (T4.1–T6.4) · Batch C: T7.1 ✅ T7.2 ✅ T7.3 ✅ T7.4 in progress
+> Progress: T0.1 ✅ · T0.2 ✅ · **Batch A ✅** (T1.1–T3.1) · **Batch B ✅** (T4.1–T6.4) · **Batch C ✅** (T7.1–T7.4, awaiting your final review)
 
 ## Batches
 

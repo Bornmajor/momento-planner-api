@@ -112,6 +112,9 @@ describe('Ticketmaster provider', () => {
     const provider = build(vi.fn().mockResolvedValue(jsonResponse(500, { error: 'boom' })));
     const error = await provider.getById('x').catch((e: unknown) => e);
     expect(error).toMatchObject({ code: 'UPSTREAM_UNAVAILABLE' });
+    // The internal reason is kept for logs (cause), never sent to clients (details).
+    expect((error as { details?: unknown }).details).toBeUndefined();
+    expect(String((error as { cause?: unknown }).cause)).toContain('500');
     expect(JSON.stringify(error) + String(error)).not.toContain('test-key');
   });
 });

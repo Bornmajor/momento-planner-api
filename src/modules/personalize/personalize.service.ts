@@ -27,25 +27,37 @@ export function createPersonalizeService(deps: {
   const now = deps.now ?? (() => new Date());
   const today = () => now().toISOString().slice(0, 10);
 
-  /** Counts one uncached AI call against today's limit, atomically. */
-  async function reserveQuota(userId: string) {
+  /** Increments today's counter only while it is under the limit. */
+  async function incrementIfUnderLimit(userId: string, day: string): Promise<boolean> {
+    const result = await AiUsage.updateOne(
+      { userId, day, count: mongoose.trusted({ $lt: deps.dailyLimit }) },
+      { $inc: { count: 1 } },
+    );
+    return result.matchedCount === 1;
+  }
+
+  /**
+   * Counts one uncached AI call against today's limit, atomically, and returns the day it was
+   * counted on (so a refund hits the same counter even across midnight UTC).
+   */
+  async function reserveQuota(userId: string): Promise<string> {
     if (deps.dailyLimit <= 0) throw limitReached();
+    const day = today();
+    if (await incrementIfUnderLimit(userId, day)) return day;
     try {
-      // Matches only while under the limit. At the limit the upsert tries to insert a second
-      // {userId, day} document, which the unique index rejects.
-      await AiUsage.findOneAndUpdate(
-        { userId, day: today(), count: mongoose.trusted({ $lt: deps.dailyLimit }) },
-        { $inc: { count: 1 }, $setOnInsert: { createdAt: now() } },
-        { upsert: true },
-      );
+      // First call of the day: create the counter.
+      await AiUsage.create({ userId, day, count: 1, createdAt: now() });
+      return day;
     } catch (err) {
-      if ((err as { code?: number }).code === 11000) throw limitReached();
-      throw err;
+      if ((err as { code?: number }).code !== 11000) throw err;
+      // Another request created it first; count against it normally.
+      if (await incrementIfUnderLimit(userId, day)) return day;
+      throw limitReached();
     }
   }
 
-  async function refundQuota(userId: string) {
-    await AiUsage.updateOne({ userId, day: today() }, { $inc: { count: -1 } });
+  async function refundQuota(userId: string, day: string) {
+    await AiUsage.updateOne({ userId, day }, { $inc: { count: -1 } });
   }
 
   async function personalize(userId: string, eventId: string, options: PersonalizeOptions) {
@@ -77,7 +89,7 @@ export function createPersonalizeService(deps: {
       return { title: hit.result.title, description: hit.result.description, facts, cached: true };
     }
 
-    await reserveQuota(userId);
+    const quotaDay = await reserveQuota(userId);
     let result;
     try {
       result = await deps.ai.personalize({
@@ -86,7 +98,7 @@ export function createPersonalizeService(deps: {
         ...(options.translateTo && { translateTo: options.translateTo }),
       });
     } catch (err) {
-      await refundQuota(userId);
+      await refundQuota(userId, quotaDay);
       throw err;
     }
 
