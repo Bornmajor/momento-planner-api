@@ -7,7 +7,9 @@ info:
     Backend for the Momento event planner. Human-readable reference: docs/API-REFERENCE.md.
 
     Authentication: sign in with `/auth/register`, `/auth/login` or `/auth/google` to get an access token
-    (15 minutes) and a refresh token (30 days, single use). Send `Authorization: Bearer <accessToken>`.
+    (15 minutes) and a refresh token (30 days, single use). Every operation is protected unless it says
+    `security: []`; protected operations need the header `Authorization: Bearer <accessToken>`
+    (in Postman: Authorization → Bearer Token). Public operations: `/health` and `/auth/*`.
     All errors use the `Error` schema.
   license:
     name: ISC
@@ -362,6 +364,10 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+      description: |
+        The `accessToken` returned by `/auth/register`, `/auth/login`, `/auth/google` or `/auth/refresh`,
+        sent as `Authorization: Bearer <accessToken>`. Valid for 15 minutes; get a new one with `/auth/refresh`.
+        Never send the refresh token here. Missing, expired or invalid tokens get `401 UNAUTHENTICATED`.
 
   parameters:
     EventId:

@@ -8,14 +8,97 @@ Every endpoint of the Momento Planner API with its request and example responses
 
 ## Conventions
 
-|                    |                                                                                                     |
-| ------------------ | --------------------------------------------------------------------------------------------------- |
-| **Base URL**       | `http://localhost:4000/api/v1` locally, `https://<your-domain>.ngrok-free.app/api/v1` through ngrok |
-| **Format**         | JSON request and response bodies, `Content-Type: application/json`, max 100 KB                      |
-| **Auth**           | 🔒 = send `Authorization: Bearer <accessToken>` (from register/login/google/refresh)                |
-| **IDs**            | User ids are MongoDB ObjectIds; event ids are Ticketmaster ids (letters, digits, `-`, `_`)          |
-| **Dates**          | ISO 8601 strings in UTC, e.g. `2026-11-06T10:00:00.000Z`                                            |
-| **Unknown fields** | Ignored and dropped from request bodies                                                             |
+|                    |                                                                                                          |
+| ------------------ | -------------------------------------------------------------------------------------------------------- |
+| **Base URL**       | `http://localhost:4000/api/v1` locally, `https://<your-domain>.ngrok-free.app/api/v1` through ngrok      |
+| **Format**         | JSON request and response bodies, `Content-Type: application/json`, max 100 KB                           |
+| **Auth**           | 🔒 = protected route: send `Authorization: Bearer <accessToken>`. See [Authentication](#authentication). |
+| **IDs**            | User ids are MongoDB ObjectIds; event ids are Ticketmaster ids (letters, digits, `-`, `_`)               |
+| **Dates**          | ISO 8601 strings in UTC, e.g. `2026-11-06T10:00:00.000Z`                                                 |
+| **Unknown fields** | Ignored and dropped from request bodies                                                                  |
+
+## Authentication
+
+Every route marked 🔒 is **protected**: it needs the user's **access token** in the `Authorization` header.
+Without it (or with a bad one) the API answers `401 UNAUTHENTICATED`.
+
+### 1. Get an access token
+
+Sign in with `POST /auth/register`, `POST /auth/login` or `POST /auth/google`. The response contains:
+
+```json
+{ "user": { "...": "..." }, "accessToken": "eyJhbGciOiJIUzI1NiJ9…", "refreshToken": "q3J8m1Vv2xYb0k…" }
+```
+
+| Token          | Use it for                                                                              | Lifetime            |
+| -------------- | --------------------------------------------------------------------------------------- | ------------------- |
+| `accessToken`  | The `Authorization` header of every 🔒 request                                          | **15 minutes**      |
+| `refreshToken` | Only the body of `POST /auth/refresh` and `POST /auth/logout`. **Never** in the header. | 30 days, single use |
+
+### 2. Send it on protected requests
+
+The header is the word `Bearer`, one space, then the access token:
+
+```http
+GET /api/v1/events?category=music HTTP/1.1
+Host: localhost:4000
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9…
+```
+
+```bash
+curl http://localhost:4000/api/v1/events?category=music \
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiJ9…"
+```
+
+```ts
+await fetch(`${API}/events?category=music`, { headers: { Authorization: `Bearer ${accessToken}` } });
+```
+
+**In Postman:**
+
+1. In the login (or register) request's **Scripts → Post-response** tab, save the tokens:
+   `pm.environment.set('token', pm.response.json().accessToken); pm.environment.set('refresh', pm.response.json().refreshToken);`
+2. On the collection (or each 🔒 request), go to **Authorization → Bearer Token** and enter `{{token}}`. Postman adds the
+   `Bearer ` prefix for you.
+
+### 3. When the access token expires
+
+After 15 minutes protected requests return `401`. Get a new pair without signing in again:
+
+```http
+POST /api/v1/auth/refresh
+Content-Type: application/json
+
+{ "refreshToken": "q3J8m1Vv2xYb0k…" }
+```
+
+Use the new `accessToken` and **keep the new `refreshToken`**: the old one no longer works. Don't send two refreshes
+at once with the same token; the second counts as reuse and ends the session (see [API.md](API.md#token-handling)).
+
+### Public and protected routes
+
+| Public (no token)                                                     | Protected 🔒 (`Authorization: Bearer <accessToken>`)                 |
+| --------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `GET /health`                                                         | `GET` · `PATCH` · `DELETE /me`                                       |
+| `POST /auth/register`                                                 | `GET /events`, `GET /events/categories`, `GET /events/{id}`          |
+| `POST /auth/login`                                                    | `POST /events/{id}/personalize`                                      |
+| `POST /auth/google`                                                   | `GET` · `POST /me/saved-events`, `DELETE /me/saved-events/{eventId}` |
+| `POST /auth/refresh`, `POST /auth/logout` (refresh token in the body) |                                                                      |
+
+### Why a protected request returns 401
+
+| Cause                                                             | Fix                                                                                   |
+| ----------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| No `Authorization` header                                         | Add `Authorization: Bearer <accessToken>`                                             |
+| The `Bearer ` prefix is missing (just the token)                  | Use `Bearer <token>`, or Postman's **Bearer Token** auth type                         |
+| The **refresh** token was sent instead of the access token        | Send `accessToken`; the refresh token only goes to `/auth/refresh` and `/auth/logout` |
+| The access token is older than 15 minutes                         | Call `POST /auth/refresh`, or sign in again                                           |
+| The user was deleted (`DELETE /me`, or the database was cleared)  | Register again                                                                        |
+| The token came from a server with a different `JWT_ACCESS_SECRET` | Sign in again against this server                                                     |
+
+```json
+{ "error": { "code": "UNAUTHENTICATED", "message": "Authentication required" } }
+```
 
 ### Error format
 
