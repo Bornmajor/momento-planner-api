@@ -9,6 +9,9 @@ import { errorHandler } from './middleware/error-handler.js';
 import { notFound } from './middleware/not-found.js';
 import { createRequireAuth } from './middleware/require-auth.js';
 import { createAuthRouter, type AuthRateLimits } from './modules/auth/auth.routes.js';
+import { createEventsRouter } from './modules/events/events.routes.js';
+import { createPersonalizeRouter } from './modules/personalize/personalize.routes.js';
+import { createSavedEventsRouter } from './modules/saved-events/saved-events.routes.js';
 import { createUsersRouter } from './modules/users/users.routes.js';
 
 export type RateLimits = AuthRateLimits;
@@ -59,6 +62,9 @@ export function createApp(deps: AppDeps): Express {
       createAuthRouter({ auth: services.auth, rateLimits: deps.rateLimits ?? DEFAULT_RATE_LIMITS }),
     );
     api.use(createUsersRouter({ requireAuth }));
+    api.use('/me/saved-events', createSavedEventsRouter({ savedEvents: services.savedEvents, requireAuth }));
+    api.use('/events', createPersonalizeRouter({ personalize: services.personalize, requireAuth }));
+    api.use('/events', createEventsRouter({ events: services.events, requireAuth }));
   }
   app.use(API_PREFIX, api);
 

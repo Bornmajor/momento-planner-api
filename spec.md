@@ -254,7 +254,7 @@ A malformed JSON body returns `VALIDATION_ERROR`.
   genre: string | null;
   venue: { name: string; city: string | null; country: string | null; address: string | null } | null;
   priceRange: { min: number; max: number; currency: string } | null;
-  description: string | null;  // built from Ticketmaster's description, info and pleaseNote fields
+  description: string | null;  // from Ticketmaster's description/info/pleaseNote; HTML converted to plain text
   notes: string | null;
 }
 ```

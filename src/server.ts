@@ -4,6 +4,10 @@ import { createServices } from './container.js';
 import { connectDb, disconnectDb } from './lib/db.js';
 import { createLogger } from './lib/logger.js';
 import { createGoogleVerifier } from './modules/auth/google-verifier.js';
+import { EVENT_COUNTRIES } from './config/constants.js';
+import { createClaudeProvider } from './providers/ai/claude.provider.js';
+import { createFakeAiProvider } from './providers/ai/fake-ai.provider.js';
+import { createTicketmasterProvider } from './providers/events/ticketmaster.provider.js';
 
 function readEnv() {
   try {
@@ -29,12 +33,18 @@ try {
 }
 
 if (env.googleClientIds.length === 0) logger.warn('GOOGLE_CLIENT_IDS is empty: Google sign-in is disabled');
+if (!env.anthropicApiKey) logger.warn('ANTHROPIC_API_KEY is empty: using the fake AI provider');
 
 const services = createServices({
   jwtAccessSecret: env.jwtAccessSecret,
   accessTokenTtl: env.accessTokenTtl,
   refreshTokenTtlDays: env.refreshTokenTtlDays,
   googleVerifier: createGoogleVerifier(env.googleClientIds),
+  eventProvider: createTicketmasterProvider({ apiKey: env.ticketmasterApiKey, countries: EVENT_COUNTRIES }),
+  aiProvider: env.anthropicApiKey
+    ? createClaudeProvider({ apiKey: env.anthropicApiKey, model: env.aiModel })
+    : createFakeAiProvider(),
+  aiDailyLimitPerUser: env.aiDailyLimitPerUser,
 });
 const app = createApp({ logger, services, exposeStack: env.nodeEnv === 'development' });
 const server = app.listen(env.port, () => logger.info(`API listening on http://localhost:${env.port}`));
