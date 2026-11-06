@@ -1,18 +1,28 @@
 # Plan — Momento Planner API (backend)
 
 > Status: **APPROVED (2026-11-06)**. Phase 3 of the workflow. Implements [spec.md](spec.md).
-> Executed one milestone at a time, with your review between milestones.
+> Executed in **3 batches** (regrouped 2026-11-06 for speed), with your review between batches.
 >
-> Progress: T0.1 ✅ · T0.2 ✅
+> Progress: T0.1 ✅ · T0.2 ✅ · **Batch A ✅** (T1.1–T3.1, awaiting your review)
 
-## How each task is executed (TDD)
+## Batches
 
-1. **Red:** write the tests from the acceptance criteria, run them, and confirm they fail.
-2. **Review:** at the start of each milestone, you review that milestone's tests before any code is written.
-3. **Green:** write the smallest amount of code that makes the tests pass.
-4. **Refactor:** clean up the code while keeping the tests passing.
-5. **Gate:** `npm run lint`, `npm run typecheck` and `npm test` all pass, then one commit per task (e.g. `feat(auth): T2.3 register/login routes`).
-6. **Milestone end:** a short summary plus the actual diff for you to review before the next milestone starts.
+| Batch                      | Milestones                                          | What you get at the end                                                          |
+| -------------------------- | --------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **A. Core server & users** | M1 Foundation + M2 Authentication + M3 Profile      | A running API: health, register, login, Google sign-in, refresh, logout, profile |
+| **B. Events & AI**         | M4 Events + M5 Saved events + M6 AI personalization | Search, details, categories, My Events, Personalize                              |
+| **C. Hardening & review**  | M7                                                  | Security pass, real-service smoke test, README, independent code review          |
+
+## How each batch is executed (TDD)
+
+1. **Red:** for each task, write the tests from the acceptance criteria, run them, and confirm they fail.
+2. **Green:** write the smallest amount of code that makes the tests pass.
+3. **Refactor:** clean up the code while keeping the tests passing.
+4. **Gate:** `npm run lint`, `npm run typecheck` and `npm test` all pass, then one commit per task (e.g. `feat(auth): T2.3 register/login routes`).
+5. **Batch end:** you review the tests **and** the code together, with a summary, the test results and the actual diff,
+   before the next batch starts. Tests are still written first and seen failing; you review them at the end instead of
+   before the code.
+6. **Stop early** only if something needs your decision (e.g. a spec conflict). I'll ask instead of guessing.
 
 Tests use only fakes or in-memory services: in-memory MongoDB, and fake Ticketmaster, Claude and Google. The real
 services are used only in the manual smoke test (T7.2).

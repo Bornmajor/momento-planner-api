@@ -12,6 +12,8 @@
     "build": "tsc -p tsconfig.build.json",
     "start": "node --env-file=.env dist/server.js",
     "test": "vitest run",
+    "test:unit": "vitest run --project unit",
+    "test:integration": "vitest run --project integration",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
     "lint": "eslint .",
@@ -19,19 +21,41 @@
     "format:check": "prettier --check .",
     "typecheck": "tsc --noEmit"
   },
+  "config": {
+    "mongodbMemoryServer": {
+      "downloadDir": "node_modules/.cache/mongodb-memory-server"
+    }
+  },
   "keywords": [],
   "author": "Bornmajor",
   "license": "ISC",
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/express": "^5.0.6",
     "@types/node": "^24.19.2",
+    "@types/supertest": "^7.2.1",
     "@vitest/coverage-v8": "^5.1.0",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
+    "mongodb-memory-server": "^11.3.0",
     "prettier": "^3.9.10",
+    "supertest": "^7.3.1",
     "tsx": "^4.23.15",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.72.1",
     "vitest": "^5.1.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "express": "^5.3.0",
+    "express-rate-limit": "^8.7.3",
+    "google-auth-library": "^11.3.3",
+    "helmet": "^8.3.0",
+    "jose": "^6.2.15",
+    "libphonenumber-js": "^1.13.15",
+    "mongoose": "^9.12.0",
+    "pino": "^10.4.0",
+    "pino-http": "^11.0.0",
+    "zod": "^4.6.7"
   }
 }

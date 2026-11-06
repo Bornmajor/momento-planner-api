@@ -109,17 +109,17 @@ momento-planner-api/
 
 ### `users`
 
-| Field                    | Type                   | Rules                                                                          |
-| ------------------------ | ---------------------- | ------------------------------------------------------------------------------ |
-| `_id`                    | ObjectId               |                                                                                |
-| `email`                  | string                 | Required, stored lowercase and trimmed, **unique index**                       |
-| `passwordHash`           | string?                | Present only if the user signed up with a password. Never returned by the API. |
-| `googleId`               | string?                | Google's `sub` value. **Unique, sparse index.**                                |
-| `firstName`              | string                 | Required, 1–50 characters                                                      |
-| `lastName`               | string                 | Required, 1–50 characters                                                      |
-| `phone`                  | string?                | E.164 format, validated                                                        |
-| `language`               | `'en' \| 'fr' \| 'sw'` | Default `'en'`                                                                 |
-| `createdAt`, `updatedAt` | Date                   | Set automatically by Mongoose                                                  |
+| Field                    | Type                   | Rules                                                                                                                                   |
+| ------------------------ | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `_id`                    | ObjectId               |                                                                                                                                         |
+| `email`                  | string                 | Required, stored lowercase and trimmed, **unique index**                                                                                |
+| `passwordHash`           | string?                | Present only if the user signed up with a password. Never returned by the API.                                                          |
+| `googleId`               | string?                | Google's `sub` value. **Unique, sparse index.**                                                                                         |
+| `firstName`              | string                 | Required, 1–50 characters                                                                                                               |
+| `lastName`               | string                 | 0–50 characters. Required (1–50) on register and profile edits; may be empty only for a Google account whose profile has no family name |
+| `phone`                  | string?                | E.164 format, validated                                                                                                                 |
+| `language`               | `'en' \| 'fr' \| 'sw'` | Default `'en'`                                                                                                                          |
+| `createdAt`, `updatedAt` | Date                   | Set automatically by Mongoose                                                                                                           |
 
 **Linking accounts.** On Google sign-in, look up the user by `googleId` first. If none is found and Google says the
 email is verified, look up by `email` and **link** the Google ID to that account. Otherwise create a new user, taking
@@ -194,8 +194,9 @@ All responses are JSON. Errors use a single shape:
 ```
 
 Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENTIALS` (401), `FORBIDDEN` (403),
-`NOT_FOUND` (404), `EMAIL_TAKEN` (409), `SAVED_LIMIT_REACHED` (409), `RATE_LIMITED` (429), `AI_LIMIT_REACHED` (429),
-`UPSTREAM_UNAVAILABLE` (502), `INTERNAL` (500).
+`NOT_FOUND` (404), `EMAIL_TAKEN` (409), `SAVED_LIMIT_REACHED` (409), `PAYLOAD_TOO_LARGE` (413, body over 100 KB),
+`RATE_LIMITED` (429), `AI_LIMIT_REACHED` (429), `UPSTREAM_UNAVAILABLE` (502), `INTERNAL` (500).
+A malformed JSON body returns `VALIDATION_ERROR`.
 
 ### Auth (public)
 
