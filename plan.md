@@ -185,7 +185,7 @@ services are used only in the manual smoke test (T7.2).
   - the 4 calls/second limiter,
   - the lru-cache lifetimes from spec §8,
   - errors converted to our codes (404 becomes not found; 401, 429 and 5xx become `UPSTREAM_UNAVAILABLE`),
-  - `locale=*`, `sort=date,asc` and `startDateTime=now`.
+  - `locale=*`, `sort=date,asc`, `startDateTime=now` and (on search) `countryCode=GB,US,IE,AU,NZ,CA` from config.
 - **Tests (fetch is mocked):**
   - Request parameters are built correctly.
   - A second identical call is served from the cache.
@@ -263,13 +263,13 @@ services are used only in the manual smoke test (T7.2).
   - A cache hit returns `cached:true`, doesn't call the AI and doesn't count towards the limit.
   - A cache miss calls the AI once, stores the result and adds one to `ai_usage`.
   - The 21st uncached call in a day returns 429 `AI_LIMIT_REACHED`.
-  - With `shorten:false` in the event's own language (English), the original text is returned with no AI call.
-  - The language defaults to the user's language.
+  - `{ shorten:false, translateTo:'en' }` returns the original text with no AI call (Version 1 events are English).
+  - Shorten without `translateTo` keeps the original language; `translateTo` sets the output language.
   - An unknown event returns 404.
 
 ### T6.4 `POST /events/:id/personalize` route
 
-- **Tests (integration):** requires auth, validates the body, returns the response shape `{title, description, facts, cached}`, and maps errors correctly.
+- **Tests (integration):** requires auth, validates the body (`{ shorten:false }` with no `translateTo` returns 400), returns the response shape `{title, description, facts, cached}`, and maps errors correctly.
 
 **Depends on:** M4 and T3.1 (for the user's language). M5 isn't needed, so M5 and M6 can be done in either order.
 

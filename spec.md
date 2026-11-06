@@ -225,6 +225,8 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 | `GET /events/:id`        | —                                                                     | `200 { event: Event }` · `404` if the source doesn't have it        |
 
 - Only upcoming events are returned (`startDateTime` = now), sorted by `date,asc`.
+- **Version 1 covers English-speaking countries only:** GB, US, IE, AU, NZ, CA (decision 5, §12). Ticketmaster can't
+  reliably filter by language (see §8), so the country is used to filter instead. Worldwide events are a future feature.
 - Ticketmaster can't page past item 1,000, so requests where `(page+1)*size > 1000` return `400`.
 - **Categories** are a fixed, curated list of Ticketmaster's top-level groups ("segments"), stored in config.
   The IDs below were confirmed by the T0.2 spike. Ticketmaster's `Undefined` segment is left out.
@@ -272,17 +274,20 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 
 ### Personalize (auth required)
 
-| Method & path                  | Body                                                                                  | 2xx response                                         |
-| ------------------------------ | ------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `POST /events/:id/personalize` | `{ shorten: boolean, language?: 'en'\|'fr'\|'sw' }` (defaults to the user's language) | `200 { title, description, facts, cached: boolean }` |
+| Method & path                  | Body                                                   | 2xx response                                         |
+| ------------------------------ | ------------------------------------------------------ | ---------------------------------------------------- |
+| `POST /events/:id/personalize` | `{ shorten: boolean, translateTo?: 'en'\|'fr'\|'sw' }` | `200 { title, description, facts, cached: boolean }` |
 
+- **The AI runs only on an explicit user choice.** The user picks Shorten, Translate (with a target language), or both,
+  on the Personalize screen. Nothing is translated or summarized automatically.
+- At least one option is required. `{ shorten: false }` with no `translateTo` returns `400 VALIDATION_ERROR`. To use
+  the original text, the app doesn't call this endpoint at all.
+- The app pre-selects the user's language for Translate, but the user must choose it.
+- **Version 1 assumes event text is in English** (English-speaking countries only, §7 Events). So
+  `{ shorten: false, translateTo: 'en' }` returns the original text with `cached: false` and **no AI call**.
 - `facts` = `{ dateTimeText, venueText, url }`. **The backend builds these from the event data. The AI never
   produces them.** This guarantees dates, times, venues and links are exact. The app combines
   `description` and `facts` into the calendar notes.
-- If `shorten` is false and `language` is the event's original language (assumed to be English), the original text is
-  returned and the AI isn't called.
-  > ⚠️ **Under review:** the T0.2 spike showed event text is often not in English (see §8). A replacement rule is
-  > pending your approval.
 - Errors: `404` if the event doesn't exist · `429 AI_LIMIT_REACHED` · `502 UPSTREAM_UNAVAILABLE` if the AI call fails.
 
 ### Health
@@ -293,8 +298,9 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 
 - `TicketmasterProvider` implements:
   `search({ q, categoryId, page, size })`, `getById(id)`, `getByIds(ids)` (at most 20 IDs), `listCategories()`.
-- Calls `GET https://app.ticketmaster.com/discovery/v2/events.json` and `/events/{id}.json` with `apikey`, and
-  `locale=*` to include events from all locales.
+- Calls `GET https://app.ticketmaster.com/discovery/v2/events.json` and `/events/{id}.json` with `apikey`,
+  `locale=*`, and on search `countryCode=GB,US,IE,AU,NZ,CA`. The country list lives in config, so it's easy to
+  widen later.
 - **Limits:** 5,000 calls/day and 5 per second (confirmed from the docs). A small in-process rate limiter keeps us at
   **4 calls per second**, and calls beyond that are queued.
 - **Caching (lru-cache):**
@@ -321,8 +327,10 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
   | Segment IDs                           | 6 segments, including `Undefined`                                                                                                                      | Category table in §7                                                        |
   | `description` / `info` / `pleaseNote` | Present on 11/20, 6/20 and 5/20 search results                                                                                                         | All three are optional. `description` is combined from what's present.      |
   | `priceRanges`                         | **Missing on 0/20** results checked                                                                                                                    | `priceRange` will almost always be `null`. The app must not depend on it.   |
-  | Language of event text                | With `locale=*`, text is in the event's local language (seen: Spanish, German, English). Each event has a `locale` field (e.g. `es-es`).               | **Changes personalization: see §9 note**                                    |
+  | Language of event text                | With `locale=*`, text is in the event's local language (seen: Spanish, German, English). Each event has a `locale` field (e.g. `es-es`).               | Version 1 is limited to English-speaking countries (decision 5)             |
   | Other                                 | `dates.timezone` on 20/20 · a 16:9 image on 20/20 · status codes seen: `onsale`, `offsale` · `test: false` on all · venue country is sometimes missing | Mapping treats country as optional                                          |
+  | Filter by language (`locale=en`)      | **Not reliable.** Every event is labelled `en-us`, but 44/100 still had Spanish or German text.                                                        | Not used                                                                    |
+  | Filter by several countries           | **Works.** `countryCode=GB,US,IE,AU,NZ,CA` returned only those countries (GB 74, AU 18, US 7, CA 1); 1/100 looked non-English                          | Used for search                                                             |
   | Search totals                         | `totalElements` is capped at 10,000                                                                                                                    | Pagination uses the 1,000-item limit anyway                                 |
 
 - **Attribution:** show a "Tickets on Ticketmaster" link and follow the branding guide (checked before the demo).
@@ -342,7 +350,7 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
     - Use only the facts provided.
     - Don't mention prices, dates, times or URLs. The backend adds those itself in `facts`.
     - Shorten mode: at most about 60 words, keeping the key information.
-    - Write in the target language.
+    - Translate mode: write in the target language. Without Translate, keep the original language.
     - Plain text only, because calendar apps don't render markdown.
   - `max_tokens` is about 1,000. Responses are checked for `stop_reason` (`refusal` or `max_tokens` is treated as a failure, returned as `502`).
 - **Cost controls:**
@@ -387,9 +395,11 @@ Error codes: `VALIDATION_ERROR` (400), `UNAUTHENTICATED` (401), `INVALID_CREDENT
 
 ## 12. Decisions log
 
-| #   | Decision                | Outcome                                                                                                 |
-| --- | ----------------------- | ------------------------------------------------------------------------------------------------------- |
-| 1   | AI model                | `claude-haiku-5-5` (configurable through `AI_MODEL`)                                                    |
-| 2   | Where the backend lives | Separate project at `C:\Users\Admin\Documents\node\momento-planner-api`, with this spec in that project |
-| 3   | MongoDB for development | Free MongoDB Atlas tier (Docker and MongoDB aren't installed). Tests use an in-memory MongoDB.          |
-| 4   | Saved events limit      | 100 per user                                                                                            |
+| #   | Decision                | Outcome                                                                                                                                               |
+| --- | ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | AI model                | `claude-haiku-5-5` (configurable through `AI_MODEL`)                                                                                                  |
+| 2   | Where the backend lives | Separate project at `C:\Users\Admin\Documents\node\momento-planner-api`, with this spec in that project                                               |
+| 3   | MongoDB for development | Free MongoDB Atlas tier (Docker and MongoDB aren't installed). Tests use an in-memory MongoDB.                                                        |
+| 4   | Saved events limit      | 100 per user                                                                                                                                          |
+| 5   | Event coverage          | English-speaking countries only (GB, US, IE, AU, NZ, CA) for Version 1, because Ticketmaster's language filter is unreliable. Worldwide events later. |
+| 6   | When the AI runs        | Only on an explicit user choice: `{ shorten, translateTo? }`, at least one. Translating an (English) event into English skips the AI.                 |
