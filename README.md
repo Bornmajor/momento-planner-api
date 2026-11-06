@@ -6,7 +6,9 @@ version of an event (shorter and/or translated into English, French or Swahili) 
 - **Stack:** Node.js 24, TypeScript, Express 5, MongoDB (Mongoose), zod, Vitest
 - **Event source:** Ticketmaster Discovery API (Version 1 covers GB, US, IE, AU, NZ and CA)
 - **AI:** Claude (`claude-haiku-5-5` by default) through the Anthropic SDK with structured output
-- **Docs:** [spec.md](spec.md) (architecture and API contract) · [plan.md](plan.md) (implementation plan)
+- **Docs:** [docs/API.md](docs/API.md) (how the app consumes the API) ·
+  [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) (modules, auth, secrets, data model) ·
+  [CONTRIBUTING.md](CONTRIBUTING.md) · [spec.md](spec.md) (formal contract) · [plan.md](plan.md) (implementation plan)
 
 The mobile app lives in a separate repository (`momento-event-planner-app`) and only talks to this API.
 
