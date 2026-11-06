@@ -1,0 +1,646 @@
+openapi: 3.1.0
+info:
+  title: Momento Planner API
+  version: 0.1.0
+  summary: Event discovery, saved events and AI personalization for the Momento mobile app.
+  description: |
+    Backend for the Momento event planner. Human-readable reference: docs/API-REFERENCE.md.
+
+    Authentication: sign in with `/auth/register`, `/auth/login` or `/auth/google` to get an access token
+    (15 minutes) and a refresh token (30 days, single use). Send `Authorization: Bearer <accessToken>`.
+    All errors use the `Error` schema.
+  license:
+    name: ISC
+    identifier: ISC
+
+servers:
+  - url: http://localhost:4000/api/v1
+    description: Local development
+  - url: https://{domain}/api/v1
+    description: Through an ngrok static domain
+    variables:
+      domain:
+        default: your-name.ngrok-free.app
+
+security:
+  - bearerAuth: []
+
+tags:
+  - name: Auth
+  - name: Profile
+  - name: Events
+  - name: Saved events
+  - name: Personalization
+
+paths:
+  /auth/register:
+    post:
+      tags: [Auth]
+      summary: Create an account with email and password
+      operationId: register
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RegisterRequest' }
+            example: { email: ada@example.com, password: Passw0rd!, firstName: Ada, lastName: Lovelace }
+      responses:
+        '201':
+          description: Account created and signed in
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthResponse' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /auth/login:
+    post:
+      tags: [Auth]
+      summary: Sign in with email and password
+      operationId: login
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/LoginRequest' }
+            example: { email: ada@example.com, password: Passw0rd! }
+      responses:
+        '200':
+          description: Signed in
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthResponse' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401':
+          description: Wrong email or password (same response for every cause)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Error' }
+              example: { error: { code: INVALID_CREDENTIALS, message: Invalid email or password } }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /auth/google:
+    post:
+      tags: [Auth]
+      summary: Sign in or sign up with a Google ID token
+      operationId: loginWithGoogle
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [idToken]
+              properties:
+                idToken:
+                  { type: string, maxLength: 4096, description: Google ID token obtained on the device }
+      responses:
+        '200':
+          description: Signed in. Linked to an existing account when Google verified the same email.
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/AuthResponse'
+                  - type: object
+                    required: [isNewUser]
+                    properties:
+                      isNewUser: { type: boolean }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '409': { $ref: '#/components/responses/Conflict' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /auth/refresh:
+    post:
+      tags: [Auth]
+      summary: Exchange a refresh token for a new token pair
+      description: The old refresh token stops working. Reusing an old token revokes the whole session.
+      operationId: refresh
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshTokenRequest' }
+      responses:
+        '200':
+          description: New token pair
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/TokenPair' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /auth/logout:
+    post:
+      tags: [Auth]
+      summary: Revoke a refresh token
+      operationId: logout
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RefreshTokenRequest' }
+      responses:
+        '204': { description: Revoked (also returned for an unknown token) }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+
+  /me:
+    get:
+      tags: [Profile]
+      summary: Get the signed-in user
+      operationId: getMe
+      responses:
+        '200':
+          description: The user
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserResponse' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+    patch:
+      tags: [Profile]
+      summary: Update profile fields
+      operationId: updateMe
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/UpdateMeRequest' }
+            example: { firstName: Augusta, phone: +254 712 345 678, language: sw }
+      responses:
+        '200':
+          description: The updated user
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserResponse' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+    delete:
+      tags: [Profile]
+      summary: Permanently delete the account
+      description: Deletes the user, their sessions, saved events and AI usage. Cannot be undone.
+      operationId: deleteMe
+      responses:
+        '204': { description: Deleted }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /events:
+    get:
+      tags: [Events]
+      summary: Search upcoming events
+      description: Version 1 searches GB, US, IE, AU, NZ and CA, soonest first. `(page + 1) * size` must be at most 1000.
+      operationId: searchEvents
+      parameters:
+        - { name: q, in: query, schema: { type: string, minLength: 1, maxLength: 100 } }
+        - { name: category, in: query, schema: { $ref: '#/components/schemas/CategoryId' } }
+        - { name: page, in: query, schema: { type: integer, minimum: 0, default: 0 } }
+        - { name: size, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+      responses:
+        '200':
+          description: A page of events
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, page, size, totalPages, totalItems]
+                properties:
+                  items: { type: array, items: { $ref: '#/components/schemas/EventSummary' } }
+                  page: { type: integer }
+                  size: { type: integer }
+                  totalPages: { type: integer }
+                  totalItems: { type: integer }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '502': { $ref: '#/components/responses/UpstreamUnavailable' }
+
+  /events/categories:
+    get:
+      tags: [Events]
+      summary: List event categories
+      operationId: listCategories
+      responses:
+        '200':
+          description: The fixed category list
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items]
+                properties:
+                  items: { type: array, items: { $ref: '#/components/schemas/Category' } }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+  /events/{id}:
+    get:
+      tags: [Events]
+      summary: Get event details
+      operationId: getEvent
+      parameters:
+        - $ref: '#/components/parameters/EventId'
+      responses:
+        '200':
+          description: The event
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [event]
+                properties:
+                  event: { $ref: '#/components/schemas/Event' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '502': { $ref: '#/components/responses/UpstreamUnavailable' }
+
+  /events/{id}/personalize:
+    post:
+      tags: [Personalization]
+      summary: Shorten and/or translate an event with AI
+      description: |
+        The AI runs only for the chosen options; at least one is required. `facts` are built by the server,
+        never by the AI. Each user gets 20 uncached results per day; cached results are free.
+      operationId: personalizeEvent
+      parameters:
+        - $ref: '#/components/parameters/EventId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/PersonalizeRequest' }
+            example: { shorten: true, translateTo: sw }
+      responses:
+        '200':
+          description: Personalized text plus exact facts
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/PersonalizeResponse' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '429': { $ref: '#/components/responses/TooManyRequests' }
+        '502': { $ref: '#/components/responses/UpstreamUnavailable' }
+
+  /me/saved-events:
+    get:
+      tags: [Saved events]
+      summary: List saved events (newest first) with current details
+      operationId: listSavedEvents
+      parameters:
+        - { name: page, in: query, schema: { type: integer, minimum: 0, default: 0 } }
+        - { name: size, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
+      responses:
+        '200':
+          description: A page of saved events
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [items, page, size, totalItems]
+                properties:
+                  items: { type: array, items: { $ref: '#/components/schemas/SavedEventView' } }
+                  page: { type: integer }
+                  size: { type: integer }
+                  totalItems: { type: integer }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '502': { $ref: '#/components/responses/UpstreamUnavailable' }
+    post:
+      tags: [Saved events]
+      summary: Save an event
+      operationId: saveEvent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [eventId]
+              properties:
+                eventId: { $ref: '#/components/schemas/EventIdValue' }
+      responses:
+        '200':
+          description: Already saved
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SavedEventResponse' }
+        '201':
+          description: Saved
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SavedEventResponse' }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+        '404': { $ref: '#/components/responses/NotFound' }
+        '409': { $ref: '#/components/responses/Conflict' }
+
+  /me/saved-events/{eventId}:
+    delete:
+      tags: [Saved events]
+      summary: Remove a saved event
+      operationId: removeSavedEvent
+      parameters:
+        - name: eventId
+          in: path
+          required: true
+          schema: { $ref: '#/components/schemas/EventIdValue' }
+      responses:
+        '204': { description: Removed (also returned when it wasn't saved) }
+        '400': { $ref: '#/components/responses/ValidationError' }
+        '401': { $ref: '#/components/responses/Unauthenticated' }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    EventId:
+      name: id
+      in: path
+      required: true
+      schema: { $ref: '#/components/schemas/EventIdValue' }
+
+  responses:
+    ValidationError:
+      description: Invalid input
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example:
+            error:
+              code: VALIDATION_ERROR
+              message: Request validation failed
+              details: [{ location: body, path: password, message: must contain a digit }]
+    Unauthenticated:
+      description: Missing, invalid or expired token
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example: { error: { code: UNAUTHENTICATED, message: Authentication required } }
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example: { error: { code: NOT_FOUND, message: Event not found } }
+    Conflict:
+      description: EMAIL_TAKEN or SAVED_LIMIT_REACHED
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example: { error: { code: EMAIL_TAKEN, message: An account with this email already exists } }
+    TooManyRequests:
+      description: RATE_LIMITED (per IP) or AI_LIMIT_REACHED (per user per day)
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example: { error: { code: RATE_LIMITED, message: 'Too many requests, please try again later' } }
+    UpstreamUnavailable:
+      description: Ticketmaster or the AI service failed
+      content:
+        application/json:
+          schema: { $ref: '#/components/schemas/Error' }
+          example:
+            error:
+              { code: UPSTREAM_UNAVAILABLE, message: 'The event service is unavailable, please try again' }
+
+  schemas:
+    Error:
+      type: object
+      required: [error]
+      properties:
+        error:
+          type: object
+          required: [code, message]
+          properties:
+            code:
+              type: string
+              enum:
+                - VALIDATION_ERROR
+                - UNAUTHENTICATED
+                - INVALID_CREDENTIALS
+                - FORBIDDEN
+                - NOT_FOUND
+                - EMAIL_TAKEN
+                - SAVED_LIMIT_REACHED
+                - PAYLOAD_TOO_LARGE
+                - RATE_LIMITED
+                - AI_LIMIT_REACHED
+                - INTERNAL
+                - UPSTREAM_UNAVAILABLE
+            message: { type: string }
+            details:
+              type: array
+              description: Present for VALIDATION_ERROR caused by invalid fields
+              items:
+                type: object
+                required: [location, path, message]
+                properties:
+                  location: { type: string, enum: [body, query, params] }
+                  path: { type: string }
+                  message: { type: string }
+
+    Language:
+      type: string
+      enum: [en, fr, sw]
+
+    User:
+      type: object
+      required: [id, email, firstName, lastName, phone, language, authProviders, createdAt]
+      properties:
+        id: { type: string, example: 672b9f0c5e1d4a0012ab34cd }
+        email: { type: string, format: email, example: ada@example.com }
+        firstName: { type: string, example: Ada }
+        lastName:
+          {
+            type: string,
+            description: May be empty for Google accounts without a family name,
+            example: Lovelace,
+          }
+        phone: { type: [string, 'null'], description: E.164, example: '+254712345678' }
+        language: { $ref: '#/components/schemas/Language' }
+        authProviders: { type: array, items: { type: string, enum: [password, google] } }
+        createdAt: { type: string, format: date-time }
+
+    UserResponse:
+      type: object
+      required: [user]
+      properties:
+        user: { $ref: '#/components/schemas/User' }
+
+    TokenPair:
+      type: object
+      required: [accessToken, refreshToken]
+      properties:
+        accessToken: { type: string, description: JWT, valid 15 minutes }
+        refreshToken: { type: string, description: 'Single use, valid 30 days' }
+
+    AuthResponse:
+      allOf:
+        - $ref: '#/components/schemas/TokenPair'
+        - type: object
+          required: [user]
+          properties:
+            user: { $ref: '#/components/schemas/User' }
+
+    RegisterRequest:
+      type: object
+      required: [email, password, firstName, lastName]
+      properties:
+        email: { type: string, format: email, maxLength: 254 }
+        password:
+          {
+            type: string,
+            minLength: 8,
+            description: 'At most 72 bytes, with at least one letter and one digit',
+          }
+        firstName: { type: string, minLength: 1, maxLength: 50 }
+        lastName: { type: string, minLength: 1, maxLength: 50 }
+
+    LoginRequest:
+      type: object
+      required: [email, password]
+      properties:
+        email: { type: string, format: email }
+        password: { type: string, minLength: 1, maxLength: 200 }
+
+    RefreshTokenRequest:
+      type: object
+      required: [refreshToken]
+      properties:
+        refreshToken: { type: string, minLength: 1, maxLength: 200 }
+
+    UpdateMeRequest:
+      type: object
+      properties:
+        firstName: { type: string, minLength: 1, maxLength: 50 }
+        lastName: { type: string, minLength: 1, maxLength: 50 }
+        phone: { type: [string, 'null'], description: International format starting with +; null clears it }
+        language: { $ref: '#/components/schemas/Language' }
+
+    CategoryId:
+      type: string
+      enum: [music, sports, arts-theatre, film, miscellaneous]
+
+    Category:
+      type: object
+      required: [id, name]
+      properties:
+        id: { $ref: '#/components/schemas/CategoryId' }
+        name: { type: string, example: Music }
+
+    EventIdValue:
+      type: string
+      pattern: '^[A-Za-z0-9_-]{1,64}$'
+      example: G5vYZb4kqZfa5
+
+    EventSummary:
+      type: object
+      required: [id, source, title, url, imageUrl, start, status, category, genre, venue, priceRange]
+      properties:
+        id: { $ref: '#/components/schemas/EventIdValue' }
+        source: { type: string, const: ticketmaster }
+        title: { type: string }
+        url: { type: string, format: uri, description: Ticket purchase link }
+        imageUrl: { type: [string, 'null'], format: uri }
+        start:
+          type: object
+          required: [localDate, localTime, dateTime, timezone]
+          properties:
+            localDate: { type: string, example: '2026-12-01' }
+            localTime: { type: [string, 'null'], example: '19:30:00' }
+            dateTime:
+              { type: [string, 'null'], format: date-time, description: UTC start; null when not announced }
+            timezone: { type: [string, 'null'], example: Europe/London }
+        status: { type: string, enum: [onsale, offsale, cancelled, postponed, rescheduled, unknown] }
+        category:
+          oneOf:
+            - $ref: '#/components/schemas/Category'
+            - type: 'null'
+        genre: { type: [string, 'null'] }
+        venue:
+          oneOf:
+            - type: object
+              required: [name, city, country, address]
+              properties:
+                name: { type: string }
+                city: { type: [string, 'null'] }
+                country: { type: [string, 'null'] }
+                address: { type: [string, 'null'] }
+            - type: 'null'
+        priceRange:
+          description: Almost always null; Ticketmaster rarely provides prices
+          oneOf:
+            - type: object
+              required: [min, max, currency]
+              properties:
+                min: { type: number }
+                max: { type: number }
+                currency: { type: string }
+            - type: 'null'
+
+    Event:
+      allOf:
+        - $ref: '#/components/schemas/EventSummary'
+        - type: object
+          required: [description, notes]
+          properties:
+            description: { type: [string, 'null'], description: Plain text }
+            notes: { type: [string, 'null'], description: Plain text }
+
+    SavedEventView:
+      type: object
+      required: [eventId, savedAt, available, event]
+      properties:
+        eventId: { $ref: '#/components/schemas/EventIdValue' }
+        savedAt: { type: string, format: date-time }
+        available: { type: boolean, description: false when the event no longer exists at the source }
+        event:
+          oneOf:
+            - $ref: '#/components/schemas/Event'
+            - type: 'null'
+
+    SavedEventResponse:
+      type: object
+      required: [savedEvent]
+      properties:
+        savedEvent:
+          type: object
+          required: [eventId, source, savedAt]
+          properties:
+            eventId: { $ref: '#/components/schemas/EventIdValue' }
+            source: { type: string, const: ticketmaster }
+            savedAt: { type: string, format: date-time }
+
+    PersonalizeRequest:
+      type: object
+      description: 'At least one of `shorten: true` or `translateTo` is required.'
+      properties:
+        shorten: { type: boolean, default: false }
+        translateTo: { $ref: '#/components/schemas/Language' }
+
+    PersonalizeResponse:
+      type: object
+      required: [title, description, facts, cached]
+      properties:
+        title: { type: string, description: Written by the AI }
+        description: { type: string, description: Written by the AI (plain text) }
+        facts:
+          type: object
+          required: [dateTimeText, venueText, url]
+          properties:
+            dateTimeText: { type: string, example: 'Jumanne, 1 Desemba 2026 saa 19:30' }
+            venueText: { type: [string, 'null'], example: "Ronnie Scott's, London, Great Britain" }
+            url: { type: string, format: uri }
+        cached:
+          { type: boolean, description: true when served from the shared cache (no AI call, no quota used) }

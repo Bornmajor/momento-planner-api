@@ -1,7 +1,8 @@
 # Consuming the API (mobile app guide)
 
-Everything the Momento app needs to talk to this backend. The formal contract is [spec.md §7](../spec.md);
-how it works inside is in [ARCHITECTURE.md](ARCHITECTURE.md).
+Everything the Momento app needs to talk to this backend. Every endpoint with full request and response examples
+is in [API-REFERENCE.md](API-REFERENCE.md) (and [openapi.yaml](openapi.yaml) for tools such as Postman). The formal
+contract is [spec.md §7](../spec.md); how it works inside is in [ARCHITECTURE.md](ARCHITECTURE.md).
 
 ## Basics
 
