@@ -23,9 +23,19 @@ export interface Event {
 /** What search returns: an Event without the long text fields. */
 export type EventSummary = Omit<Event, 'description' | 'notes'>;
 
+/**
+ * upcoming: not started yet. now: started within the last HAPPENING_NOW_HOURS (Ticketmaster rarely gives end times,
+ * so that's treated as "still going"). all: both, i.e. nothing that has already finished.
+ */
+export type SearchWhen = 'upcoming' | 'now' | 'all';
+export const SEARCH_WHEN = ['upcoming', 'now', 'all'] as const satisfies readonly SearchWhen[];
+export const HAPPENING_NOW_HOURS = 3;
+
 export interface SearchParams {
   q?: string;
   categoryId?: CategoryId;
+  /** Defaults to 'upcoming'. */
+  when?: SearchWhen;
   page: number;
   size: number;
 }

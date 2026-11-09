@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, onTestFinished, vi } from 'vitest';
 import { mapTicketmasterEvent } from '../../../src/providers/events/ticketmaster.mapper.js';
 import { createTicketmasterProvider } from '../../../src/providers/events/ticketmaster.provider.js';
 
@@ -67,6 +67,9 @@ describe('Ticketmaster provider', () => {
     createTicketmasterProvider({ apiKey: 'test-key', countries: ['GB', 'US'], fetchFn, minIntervalMs: 0 });
 
   it('searches English-speaking countries with our filters, and caches the result', async () => {
+    // The recorded fixture's events start on 2026-11-06; search "before" them so the past-event filter keeps them.
+    vi.useFakeTimers({ now: new Date('2026-11-05T00:00:00Z') });
+    onTestFinished(() => void vi.useRealTimers());
     const fetchFn = vi.fn().mockResolvedValue(jsonResponse(200, search.body));
     const provider = build(fetchFn);
 
@@ -87,6 +90,52 @@ describe('Ticketmaster provider', () => {
     expect(result.items).toHaveLength(20);
     expect(result.items[0]).not.toHaveProperty('description');
     expect(result.totalItems).toBe(search.body.page.totalElements);
+  });
+
+  it('asks for events starting from now (upcoming) or in the last 3 hours (happening now)', async () => {
+    vi.useFakeTimers({ now: new Date('2026-11-09T12:00:30Z') });
+    try {
+      const fetchFn = vi.fn().mockImplementation(async () => jsonResponse(200, { page: { totalElements: 0 } }));
+      const provider = build(fetchFn);
+
+      await provider.search({ page: 0, size: 20 });
+      await provider.search({ when: 'now', page: 0, size: 20 });
+      await provider.search({ when: 'all', page: 0, size: 20 });
+
+      const upcoming = Object.fromEntries(new URL(fetchFn.mock.calls[0]![0] as string).searchParams);
+      expect(upcoming).toMatchObject({ startDateTime: '2026-11-09T12:00:00Z' });
+      expect(upcoming).not.toHaveProperty('endDateTime');
+      const now = Object.fromEntries(new URL(fetchFn.mock.calls[1]![0] as string).searchParams);
+      expect(now).toMatchObject({ startDateTime: '2026-11-09T09:00:00Z', endDateTime: '2026-11-09T12:00:00Z' });
+      const all = Object.fromEntries(new URL(fetchFn.mock.calls[2]![0] as string).searchParams);
+      expect(all).toMatchObject({ startDateTime: '2026-11-09T09:00:00Z' });
+      expect(all).not.toHaveProperty('endDateTime');
+    } finally {
+      vi.useRealTimers();
+    }
+  });
+
+  it('drops events from a cached page once they have started', async () => {
+    vi.useFakeTimers({ now: new Date('2026-11-09T12:00:00Z') });
+    try {
+      const event = (id: string, dateTime: string) => ({
+        id,
+        name: id,
+        url: 'https://example.com',
+        dates: { start: { localDate: '2026-11-09', dateTime } },
+      });
+      const body = {
+        _embedded: { events: [event('soon', '2026-11-09T12:02:00Z'), event('later', '2026-11-09T15:00:00Z')] },
+        page: { totalElements: 2, totalPages: 1 },
+      };
+      const provider = build(vi.fn().mockResolvedValue(jsonResponse(200, body)));
+
+      expect((await provider.search({ page: 0, size: 20 })).items.map((e) => e.id)).toEqual(['soon', 'later']);
+      vi.setSystemTime(new Date('2026-11-09T12:03:00Z')); // "soon" has started; the page is still cached
+      expect((await provider.search({ page: 0, size: 20 })).items.map((e) => e.id)).toEqual(['later']);
+    } finally {
+      vi.useRealTimers();
+    }
   });
 
   it('returns null for an unknown event id (404)', async () => {

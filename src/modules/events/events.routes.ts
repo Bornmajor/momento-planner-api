@@ -3,7 +3,7 @@ import { z } from 'zod';
 import { AppError } from '../../lib/errors.js';
 import { validate } from '../../middleware/validate.js';
 import { CATEGORY_IDS } from './categories.js';
-import type { EventProvider, SearchParams } from './event.types.js';
+import { SEARCH_WHEN, type EventProvider, type SearchParams } from './event.types.js';
 
 /** Ticketmaster can't page past its 1000th result (spec §7). */
 const MAX_RESULT_INDEX = 1000;
@@ -14,6 +14,7 @@ const searchQuery = z
   .object({
     q: z.string().trim().min(1).max(100).optional(),
     category: z.enum(CATEGORY_IDS).optional(),
+    when: z.enum(SEARCH_WHEN).default('upcoming'),
     page: z.coerce.number().int().min(0).default(0),
     size: z.coerce.number().int().min(1).max(50).default(20),
   })
@@ -28,8 +29,8 @@ export function createEventsRouter(deps: { events: EventProvider; requireAuth: R
   router.use(deps.requireAuth);
 
   router.get('/', validate({ query: searchQuery }), async (req, res) => {
-    const { q, category, page, size } = req.valid.query as z.infer<typeof searchQuery>;
-    const params: SearchParams = { page, size, ...(q && { q }), ...(category && { categoryId: category }) };
+    const { q, category, when, page, size } = req.valid.query as z.infer<typeof searchQuery>;
+    const params: SearchParams = { page, size, when, ...(q && { q }), ...(category && { categoryId: category }) };
     res.json(await events.search(params));
   });
 

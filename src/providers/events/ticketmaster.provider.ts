@@ -1,8 +1,11 @@
 import { LRUCache } from 'lru-cache';
 import { segmentIdFor, CATEGORIES } from '../../modules/events/categories.js';
 import {
+  HAPPENING_NOW_HOURS,
   toSummary,
   type Event,
+  type EventSummary,
+  type SearchWhen,
   type EventProvider,
   type SearchResult,
 } from '../../modules/events/event.types.js';
@@ -29,6 +32,20 @@ interface TmSearchBody {
 }
 
 const NOT_FOUND = Symbol('not-found');
+
+const isoSeconds = (ms: number) => new Date(ms).toISOString().replace(/\.\d{3}Z$/, 'Z');
+
+/**
+ * Safety net on top of Ticketmaster's own date filter (and for cached pages). Events without a UTC start (time not
+ * announced) are kept for "upcoming" (Ticketmaster already filtered them by date) and left out of "now".
+ */
+export function matchesWhen(item: Pick<EventSummary, 'start'>, when: SearchWhen, nowMs: number): boolean {
+  const start = item.start.dateTime ? Date.parse(item.start.dateTime) : null;
+  const recent = nowMs - HAPPENING_NOW_HOURS * 60 * MINUTE;
+  if (when === 'upcoming') return start === null || start >= nowMs;
+  if (when === 'all') return start === null || start > recent;
+  return start !== null && start <= nowMs && start > recent;
+}
 // The reason is logged (as the cause), never sent to clients.
 const unavailable = (reason: string) =>
   new AppError('UPSTREAM_UNAVAILABLE', 'The event service is unavailable, please try again', undefined, {
@@ -76,7 +93,7 @@ export function createTicketmasterProvider(options: TicketmasterOptions): EventP
   }
 
   return {
-    async search({ q, categoryId, page, size }) {
+    async search({ q, categoryId, when = 'upcoming', page, size }) {
       const params: Record<string, string> = {
         size: String(size),
         page: String(page),
@@ -86,20 +103,28 @@ export function createTicketmasterProvider(options: TicketmasterOptions): EventP
         ...(q && { keyword: q }),
         ...(categoryId && { segmentId: segmentIdFor(categoryId) }),
       };
-      const cacheKey = JSON.stringify(params);
+      const cacheKey = JSON.stringify({ ...params, when });
       const cached = searchCache.get(cacheKey);
-      if (cached) return cached;
+      // A cached page can be up to 5 minutes old: drop anything that has started since (upcoming) or that is no
+      // longer "happening now".
+      if (cached) return { ...cached, items: cached.items.filter((item) => matchesWhen(item, when, Date.now())) };
 
-      // Upcoming events only. Rounded to the minute so the cache key above stays stable.
-      const startDateTime = new Date(Math.floor(Date.now() / MINUTE) * MINUTE)
-        .toISOString()
-        .replace('.000Z', 'Z');
-      const body = await get<TmSearchBody>('/events.json', { ...params, startDateTime });
+      // Ticketmaster filters on the start time: startDateTime = "starts after", endDateTime = "starts before".
+      // Rounded to the minute (Ticketmaster wants whole seconds; minutes keep requests comparable).
+      const now = Math.floor(Date.now() / MINUTE) * MINUTE;
+      const recent = isoSeconds(now - HAPPENING_NOW_HOURS * 60 * MINUTE);
+      const window: Record<string, string> =
+        when === 'now'
+          ? { startDateTime: recent, endDateTime: isoSeconds(now) }
+          : when === 'all'
+            ? { startDateTime: recent }
+            : { startDateTime: isoSeconds(now) };
+      const body = await get<TmSearchBody>('/events.json', { ...params, ...window });
       const events = (body?._embedded?.events ?? []).map(mapTicketmasterEvent);
       events.forEach(remember);
 
       const result: SearchResult = {
-        items: events.map(toSummary),
+        items: events.map(toSummary).filter((item) => matchesWhen(item, when, Date.now())),
         page,
         size,
         totalPages: body?.page?.totalPages ?? 0,
