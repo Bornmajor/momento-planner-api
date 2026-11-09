@@ -198,11 +198,15 @@ paths:
     get:
       tags: [Events]
       summary: Search upcoming events
-      description: Version 1 searches GB, US, IE, AU, NZ and CA, soonest first. `(page + 1) * size` must be at most 1000.
+      description: |
+        Version 1 searches GB, US, IE, AU, NZ and CA, soonest first. `(page + 1) * size` must be at most 1000.
+        Events that have already finished are never returned. `when` picks upcoming events (not started yet), events
+        happening now (started in the last 3 hours, since Ticketmaster rarely gives end times), or both.
       operationId: searchEvents
       parameters:
         - { name: q, in: query, schema: { type: string, minLength: 1, maxLength: 100 } }
         - { name: category, in: query, schema: { $ref: '#/components/schemas/CategoryId' } }
+        - { name: when, in: query, schema: { type: string, enum: [upcoming, now, all], default: upcoming } }
         - { name: page, in: query, schema: { type: integer, minimum: 0, default: 0 } }
         - { name: size, in: query, schema: { type: integer, minimum: 1, maximum: 50, default: 20 } }
       responses:

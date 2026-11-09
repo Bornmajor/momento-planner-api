@@ -345,13 +345,15 @@ Permanently delete the account, its sessions, saved events and AI usage. This ca
 
 ### `GET /events`
 
-Search upcoming events (Version 1: GB, US, IE, AU, NZ, CA), soonest first.
+Search events (Version 1: GB, US, IE, AU, NZ, CA), soonest first. Events that have already finished are never
+returned.
 
-| Query      | Type    | Default | Rules                                                        |
-| ---------- | ------- | ------- | ------------------------------------------------------------ |
-| `q`        | string  | —       | Keyword, 1–100 characters                                    |
-| `category` | string  | —       | `music`, `sports`, `arts-theatre`, `film` or `miscellaneous` |
-| `page`     | integer | `0`     | 0-based                                                      |
+| Query      | Type    | Default    | Rules                                                                                                                  |
+| ---------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------------------------- |
+| `q`        | string  | —          | Keyword, 1–100 characters                                                                                              |
+| `category` | string  | —          | `music`, `sports`, `arts-theatre`, `film` or `miscellaneous`                                                           |
+| `when`     | string  | `upcoming` | `upcoming` (not started yet), `now` (started in the last 3 hours; Ticketmaster rarely gives end times) or `all` (both) |
+| `page`     | integer | `0`        | 0-based                                                                                                                |
 | `size`     | integer | `20`    | 1–50, and `(page + 1) × size ≤ 1000`                         |
 
 `GET /events?q=jazz&category=music&page=0&size=2`
