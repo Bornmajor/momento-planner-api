@@ -95,7 +95,9 @@ describe('Ticketmaster provider', () => {
   it('asks for events starting from now (upcoming) or in the last 3 hours (happening now)', async () => {
     vi.useFakeTimers({ now: new Date('2026-11-09T12:00:30Z') });
     try {
-      const fetchFn = vi.fn().mockImplementation(async () => jsonResponse(200, { page: { totalElements: 0 } }));
+      const fetchFn = vi
+        .fn()
+        .mockImplementation(async () => jsonResponse(200, { page: { totalElements: 0 } }));
       const provider = build(fetchFn);
 
       await provider.search({ page: 0, size: 20 });
@@ -106,7 +108,10 @@ describe('Ticketmaster provider', () => {
       expect(upcoming).toMatchObject({ startDateTime: '2026-11-09T12:00:00Z' });
       expect(upcoming).not.toHaveProperty('endDateTime');
       const now = Object.fromEntries(new URL(fetchFn.mock.calls[1]![0] as string).searchParams);
-      expect(now).toMatchObject({ startDateTime: '2026-11-09T09:00:00Z', endDateTime: '2026-11-09T12:00:00Z' });
+      expect(now).toMatchObject({
+        startDateTime: '2026-11-09T09:00:00Z',
+        endDateTime: '2026-11-09T12:00:00Z',
+      });
       const all = Object.fromEntries(new URL(fetchFn.mock.calls[2]![0] as string).searchParams);
       expect(all).toMatchObject({ startDateTime: '2026-11-09T09:00:00Z' });
       expect(all).not.toHaveProperty('endDateTime');
@@ -125,12 +130,17 @@ describe('Ticketmaster provider', () => {
         dates: { start: { localDate: '2026-11-09', dateTime } },
       });
       const body = {
-        _embedded: { events: [event('soon', '2026-11-09T12:02:00Z'), event('later', '2026-11-09T15:00:00Z')] },
+        _embedded: {
+          events: [event('soon', '2026-11-09T12:02:00Z'), event('later', '2026-11-09T15:00:00Z')],
+        },
         page: { totalElements: 2, totalPages: 1 },
       };
       const provider = build(vi.fn().mockResolvedValue(jsonResponse(200, body)));
 
-      expect((await provider.search({ page: 0, size: 20 })).items.map((e) => e.id)).toEqual(['soon', 'later']);
+      expect((await provider.search({ page: 0, size: 20 })).items.map((e) => e.id)).toEqual([
+        'soon',
+        'later',
+      ]);
       vi.setSystemTime(new Date('2026-11-09T12:03:00Z')); // "soon" has started; the page is still cached
       expect((await provider.search({ page: 0, size: 20 })).items.map((e) => e.id)).toEqual(['later']);
     } finally {
