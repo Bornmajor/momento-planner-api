@@ -1,0 +1,45 @@
+# Checks every pull request and every push to main: formatting, lint, types, build and all tests.
+# The tests need no secrets: integration tests use an in-memory MongoDB, and Ticketmaster, Claude and Google are faked.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+# A newer push to the same branch or PR cancels the run still in progress.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Lint, typecheck, build and test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      # The in-memory MongoDB downloads a server binary on first use; keep it between runs. Restored after `npm ci`,
+      # which empties node_modules (where the binary is cached).
+      - name: Cache the MongoDB binary
+        uses: actions/cache@v4
+        with:
+          path: node_modules/.cache/mongodb-memory-server
+          key: mongodb-binary-${{ runner.os }}-${{ hashFiles('package-lock.json') }}
+
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
+      - run: npm test
