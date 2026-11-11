@@ -30,7 +30,13 @@ export function createEventsRouter(deps: { events: EventProvider; requireAuth: R
 
   router.get('/', validate({ query: searchQuery }), async (req, res) => {
     const { q, category, when, page, size } = req.valid.query as z.infer<typeof searchQuery>;
-    const params: SearchParams = { page, size, when, ...(q && { q }), ...(category && { categoryId: category }) };
+    const params: SearchParams = {
+      page,
+      size,
+      when,
+      ...(q && { q }),
+      ...(category && { categoryId: category }),
+    };
     res.json(await events.search(params));
   });
 

@@ -107,7 +107,8 @@ export function createTicketmasterProvider(options: TicketmasterOptions): EventP
       const cached = searchCache.get(cacheKey);
       // A cached page can be up to 5 minutes old: drop anything that has started since (upcoming) or that is no
       // longer "happening now".
-      if (cached) return { ...cached, items: cached.items.filter((item) => matchesWhen(item, when, Date.now())) };
+      if (cached)
+        return { ...cached, items: cached.items.filter((item) => matchesWhen(item, when, Date.now())) };
 
       // Ticketmaster filters on the start time: startDateTime = "starts after", endDateTime = "starts before".
       // Rounded to the minute (Ticketmaster wants whole seconds; minutes keep requests comparable).
