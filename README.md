@@ -1,5 +1,7 @@
 # Momento Planner API
 
+[![CI](https://github.com/Bornmajor/momento-planner-api/actions/workflows/ci.yml/badge.svg)](https://github.com/Bornmajor/momento-planner-api/actions/workflows/ci.yml)
+
 Backend for **Momento**, a mobile event planner. Users discover events, save them, and get an AI-written
 version of an event (shorter and/or translated into English, French or Swahili) to put in their device calendar.
 
@@ -76,6 +78,31 @@ Errors always look like `{ "error": { "code", "message", "details?" } }`. The fu
 
 [requests.http](requests.http) has ready-made requests for the VS Code REST Client extension.
 
+## Project structure
+
+Each feature is a module with thin routes (HTTP and validation) over a service (the logic). Outside services
+(Ticketmaster, Claude, Google) sit behind small provider interfaces, so tests swap in fakes. Everything is wired in
+`src/container.ts`. [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) explains the modules, a request flow, auth and the
+data model.
+
+```text
+src/
+  modules/        One folder per feature: auth, users, events, saved-events, personalize
+    <feature>/      *.routes.ts (endpoints + zod validation) · *.service.ts (logic, where there is any) · *.schemas.ts
+  providers/      Outside services behind interfaces: events/ (Ticketmaster + mapper), ai/ (Claude, fake for tests)
+  models/         Mongoose models: user, refresh token, saved event, AI cache and usage
+  middleware/     Validation, auth, rate limits, error handler (one error shape for every response)
+  lib/  config/   Errors, logger, database, environment (checked with zod at start-up)
+  app.ts          Express app: security headers, routes under /api/v1, error handling
+  container.ts    Creates the services and providers (swapped for fakes in tests)
+  server.ts       Start-up and graceful shutdown
+test/
+  unit/           No database: providers, validation, errors, password rules
+  integration/    Real HTTP requests (supertest) against an in-memory MongoDB
+```
+
+Every pull request runs format, lint, typecheck, build and all tests in GitHub Actions ([ci.yml](.github/workflows/ci.yml)).
+
 ## Design notes
 
 - **Thin client:** the app never calls Ticketmaster or Claude, so no third-party keys ship in the app.
@@ -89,5 +116,9 @@ Errors always look like `{ "error": { "code", "message", "details?" } }`. The fu
 ## Before hosting publicly
 
 - Set `app.set('trust proxy', 1)` (or your proxy's hop count) so rate limits see real client IPs.
-- Use new Ticketmaster and Anthropic keys (the development keys have been shared during development).
+- Use separate production keys for Ticketmaster and Anthropic, not the development ones.
 - Restrict the Atlas network allowlist to the host's IPs.
+
+## License
+
+[ISC](LICENSE) © 2026 Bornmajor
